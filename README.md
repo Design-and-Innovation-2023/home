@@ -1,6 +1,6 @@
 # Project Title
 
-Remarkable Tales: Empowering 127 Computing Science Students to share their OIP Journey
+Remarkable Tales: Empowering 127 Computing Science Students to share their Overseas Immersion Program Journey.
 
 ## Description
 
