@@ -163,7 +163,7 @@ ol {
   font-size: 15px;
   font-family: "Play", sans-serif;
   font-weight: 700;
-  padding: 15px 15px 15px;
+  padding: 10px 10px 10px;
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -172,7 +172,7 @@ ol {
   align-items: center;
   max-width: 70%;
   max-height: 30%;
-  margin-right: 20%;
+  margin-bottom: 10%;
 }
 .primary-btn:hover:before {
   height: 100%;
@@ -472,8 +472,8 @@ ol {
 }
 
 .hero__item {
-  padding-top: 170px;
-  padding-bottom: 90px;
+  padding-top: 160px;
+  padding-bottom: 40px;
 }
 
 .hero__text span {
