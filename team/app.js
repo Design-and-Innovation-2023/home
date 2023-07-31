@@ -1,8 +1,9 @@
 // background image slider
 
-const sliderImgs = ["img1.png", "img2.png", "img3.png"];
-let sliderImage = document.querySelector('.background-image');
-let sliderGrids = [...document.querySelectorAll('.grid-item')];
+const sliderImage = ['img1.png', 'img2.png', 'img3.png'];
+let slider = document.querySelector('.background-image');
+let sliderGridItems = [...document.querySelectorAll('.grid-item')];
+
 let currentImage = 0;
 
 setInterval(() => {
@@ -10,22 +11,22 @@ setInterval(() => {
 }, 5000);
 
 const changeSliderImage = () => {
-    sliderGrids.map((gridItem, index) => {
+    sliderGridItems.map((gridItem, index) => {
         setTimeout(() => {
             gridItem.classList.remove('hide');
 
             setTimeout(() => {
 
-                if(index == sliderGrids.length - 1){
-                    if(currentImage >= sliderImgs.length - 1){
+                if(index == sliderGridItems.length - 1){
+                    if(currentImage >= sliderImage.length - 1){
                         currentImage = 0;
                     } else{
                         currentImage++;
                     }
 
-                    sliderImage.src = `team/img/${sliderImgs[currentImage]}`;
+                    slider.src = `team/img/${sliderImage[currentImage]}`;
 
-                    sliderGrids.map((item, i) => {
+                    sliderGridItems.map((item, i) => {
                         setTimeout(() => {
                             item.classList.add('hide')
                         }, i * 100);
