@@ -17,7 +17,10 @@
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
@@ -111,133 +114,254 @@
     <!-- Work Section Begin -->
     <section class="work">
       <h3 style="color: white; margin-left: 2%; margin-top: 2%">Tourism</h3>
-      <div class="work__gallery">
-        <div class="grid-sizer"></div>
+      <div class="wrapper">
+        <i id="left" class="fa-solid fa-angle-left" style="color: #ffffff"></i>
+        <ul class="carousel">
+          <li class="card">
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/random_video.mp4" type="video/mp4" />
+            </video>
+          </li>
+          <li class="card">
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/random_video.mp4" type="video/mp4" />
+            </video>
+          </li>
+          <li class="card">
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/random_video.mp4" type="video/mp4" />
+            </video>
+          </li>
 
-        <div
-          class="work__item wide__item set-bg"
-          data-setbg="img/work/work-1.jpg"
-        >
-          <a
-            href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-            class="play-btn video-popup"
-            ><i class="fa fa-play"></i
-          ></a>
-          <div class="work__item__hover">
-            <h4>VIP Auto Tires & Service</h4>
-            <ul>
-              <li>eCommerce</li>
-              <li>Magento</li>
-            </ul>
-          </div>
-        </div>
-        <div
-          class="work__item wide__item clickableDiv-1-2-3 set-bg"
-          data-setbg="img/work/work-2.jpg"
-        >
-          <a
-            href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-            class="play-btn video-popup"
-            ><i class="fa fa-play"></i
-          ></a>
-        </div>
-        <!-- <div
-          class="work__item wide__item set-bg"
-          data-setbg="img/work/work-3.jpg"
-        >
-          <a
-            href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-            class="play-btn video-popup"
-            ><i class="fa fa-play"></i
-          ></a>
-        </div> -->
-      </div>
-      <h3 style="color: white; margin-left: 2%; margin-top: 2%">Education</h3>
-      <div class="work__gallery">
-        <div class="grid-sizer"></div>
-
-        <div
-          class="work__item wide__item set-bg"
-          data-setbg="img/work/work-1.jpg"
-        >
-          <a
-            href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-            class="play-btn video-popup"
-            ><i class="fa fa-play"></i
-          ></a>
-          <div class="work__item__hover">
-            <h4>VIP Auto Tires & Service</h4>
-            <ul>
-              <li>eCommerce</li>
-              <li>Magento</li>
-            </ul>
-          </div>
-        </div>
-        <div
-          class="work__item wide__item set-bg"
-          data-setbg="img/work/work-2.jpg"
-        >
-          <a
-            href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-            class="play-btn video-popup"
-            ><i class="fa fa-play"></i
-          ></a>
-        </div>
-        <div
-          class="work__item wide__item set-bg"
-          data-setbg="img/work/work-3.jpg"
-        >
-          <a
-            href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-            class="play-btn video-popup"
-            ><i class="fa fa-play"></i
-          ></a>
-        </div>
-      </div>
-      <h3 style="color: white; margin-left: 2%; margin-top: 2%">Robotics</h3>
-      <div class="work__gallery">
-        <div class="grid-sizer"></div>
-
-        <div
-          class="work__item wide__item set-bg"
-          data-setbg="img/work/work-1.jpg"
-        >
-          <a
-            href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-            class="play-btn video-popup"
-            ><i class="fa fa-play"></i
-          ></a>
-          <div class="work__item__hover">
-            <h4>VIP Auto Tires & Service</h4>
-            <ul>
-              <li>eCommerce</li>
-              <li>Magento</li>
-            </ul>
-          </div>
-        </div>
-        <div
-          class="work__item wide__item set-bg"
-          data-setbg="img/work/work-2.jpg"
-        >
-          <a
-            href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-            class="play-btn video-popup"
-            ><i class="fa fa-play"></i
-          ></a>
-        </div>
-        <div
-          class="work__item wide__item set-bg"
-          data-setbg="img/work/work-3.jpg"
-        >
-          <a
-            href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-            class="play-btn video-popup"
-            ><i class="fa fa-play"></i
-          ></a>
-        </div>
+          <li class="card">
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/random_video.mp4" type="video/mp4" />
+            </video>
+          </li>
+          <li class="card">
+            <a href="about.html">
+              <video
+                style="width: 100%; max-height: 100%"
+                autoplay
+                muted
+                loop
+                controls
+                preload="auto"
+              >
+                <source src="img/video/random_video.mp4" type="video/mp4" />
+              </video>
+            </a>
+          </li>
+          <li class="card">
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/random_video.mp4" type="video/mp4" />
+            </video>
+          </li>
+        </ul>
+        <i
+          id="right"
+          class="fa-solid fa-angle-right"
+          style="color: #ffffff"
+        ></i>
       </div>
     </section>
     <!-- Work Section End -->
+    <!-- Second Work Section Begin -->
+    <section class="work">
+      <h3 style="color: white; margin-left: 2%; margin-top: 2%">Education</h3>
+      <div class="wrapper-2">
+        <!-- Changed class name to "wrapper-2" -->
+        <i
+          id="left-2"
+          class="fa-solid fa-angle-left"
+          style="color: #ffffff"
+        ></i>
+        <!-- Changed ID to "left-2" -->
+        <ul class="carousel-2">
+          <!-- Changed class name to "carousel-2" -->
+          <li class="card-2">
+            <!-- Changed class name to "card-2" -->
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/random_video.mp4" type="video/mp4" />
+              <!-- Changed video source to "random_video_2.mp4" -->
+            </video>
+          </li>
+          <li class="card-2">
+            <!-- Changed class name to "card-2" -->
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/random_video.mp4" type="video/mp4" />
+              <!-- Changed video source to "random_video_2.mp4" -->
+            </video>
+          </li>
+          <li class="card-2">
+            <!-- Changed class name to "card-2" -->
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/Team6B.mp4" type="video/mp4" />
+              <!-- Changed video source to "random_video_2.mp4" -->
+            </video>
+          </li>
+          <li class="card-2">
+            <!-- Changed class name to "card-2" -->
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/Team6A.mp4" type="video/mp4" />
+              <!-- Changed video source to "random_video_2.mp4" -->
+            </video>
+          </li>
+          <!-- Add more carousel items for the second carousel if needed -->
+        </ul>
+        <i
+          id="right-2"
+          class="fa-solid fa-angle-right"
+          style="color: #ffffff"
+        ></i>
+        <!-- Changed ID to "right-2" -->
+      </div>
+    </section>
+    <!-- Second Work Section End -->
+
+    <!-- Third Work Section Begin -->
+    <section class="work">
+      <h3 style="color: white; margin-left: 2%; margin-top: 2%">Finance</h3>
+      <div class="wrapper-3">
+        <!-- Changed class name to "wrapper-2" -->
+        <i
+          id="left-3"
+          class="fa-solid fa-angle-left"
+          style="color: #ffffff"
+        ></i>
+        <!-- Changed ID to "left-2" -->
+        <ul class="carousel-3">
+          <!-- Changed class name to "carousel-2" -->
+          <li class="card-3">
+            <!-- Changed class name to "card-2" -->
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/Team9A.mp4" type="video/mp4" />
+              <!-- Changed video source to "random_video_2.mp4" -->
+            </video>
+          </li>
+          <li class="card-3">
+            <!-- Changed class name to "card-2" -->
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/Team6A.mp4" type="video/mp4" />
+              <!-- Changed video source to "random_video_2.mp4" -->
+            </video>
+          </li>
+          <li class="card-3">
+            <!-- Changed class name to "card-2" -->
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/Team6B.mp4" type="video/mp4" />
+              <!-- Changed video source to "random_video_2.mp4" -->
+            </video>
+          </li>
+          <li class="card-3">
+            <!-- Changed class name to "card-2" -->
+            <video
+              style="width: 100%; max-height: 100%"
+              autoplay
+              muted
+              loop
+              controls
+              preload="auto"
+            >
+              <source src="img/video/Team9B.mp4" type="video/mp4" />
+              <!-- Changed video source to "random_video_2.mp4" -->
+            </video>
+          </li>
+          <!-- Add more carousel items for the second carousel if needed -->
+        </ul>
+        <i
+          id="right-3"
+          class="fa-solid fa-angle-right"
+          style="color: #ffffff"
+        ></i>
+        <!-- Changed ID to "right-2" -->
+      </div>
+    </section>
+    <!-- Third Work Section End -->
 
     <!-- Counter Section Begin -->
     <section class="counter">
@@ -286,6 +410,28 @@
     </section>
     <!-- Counter Section End -->
 
+    <!-- Hero Section Begin -->
+    <section class="hero">
+      <div class="hero__slider owl-carousel">
+        <div
+          class="hero__item set-bg"
+          style="max-height: 100%; max-width: 100%; padding-bottom: 800px"
+          data-setbg="img/cohort/cohortpic.jpg"
+        ></div>
+        <div
+          class="hero__item set-bg"
+          style="max-height: 100%; max-width: 100%; padding-bottom: 800px"
+          data-setbg="img/cohort/cohortpic.jpg"
+        ></div>
+        <div
+          class="hero__item set-bg"
+          style="max-height: 100%; max-width: 100%; padding-bottom: 800px"
+          data-setbg="img/cohort/cohortpic.jpg"
+        ></div>
+      </div>
+    </section>
+    <!-- Hero Section End -->
+
     <!-- Footer Section Begin -->
     <footer class="footer">
       <div class="container">
@@ -323,8 +469,6 @@
                 <ul>
                   <li><a href="#">Feature</a></li>
                   <li><a href="#">Latest</a></li>
-                  <li><a href="#">Browse Archive</a></li>
-                  <li><a href="#">Video for web</a></li>
                 </ul>
               </div>
             </div>
