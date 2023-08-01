@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Meet The Team</title>
 
+        <!-- Google Fonts -->
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&family=Roboto+Slab:wght@100;300;500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
-        
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/css/normalize.min.css" />
+        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        
+        <!-- Animate on scroll CDN -->
 
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+        <!-- Local CSS File(s) -->
+
         <link rel="stylesheet" href="team/style.css">
+
     </head>
 
     <body>
+
         <header>
             <!-- navbar -->
             <nav class="navbar">
-                <ul class="link-container">
+                <ul class="links-container">
                     <li class="link-item"><a href="#">Projects</a></li>
 
                     <li class="link-item">
@@ -37,13 +47,14 @@
                 </ul>
             </nav>
 
-            <!-- hero section -->
-            <main class="hero-section" id="hero-section">
+             <!-- hero section -->
+
+             <main class="hero-section" id="hero-section">
 
                 <!-- background -->
                 <div class="background">
                     <img src="team/img/img1.png" class="background-image" alt="hero-section-image">
-                
+                    
                     <!-- grid -->
                     <div class="slider-grid">
                         <div class="grid-item hide"></div>
@@ -53,32 +64,66 @@
                         <div class="grid-item hide"></div>
                         <div class="grid-item hide"></div>
                     </div>
-
                 </div>
+
                 <div class="hero-section-content">
                     <h1 class="hero-section-title">METADIP</h1>
-                    <p class="hero-section-sub-heading">Short Project Overview / Description.</p>
+                    <P class="hero-section-sub-heading">Aims to create an innovative, engaging website, similar to Netflix, that unites 20 diverse teams in a collaborative showcase of their remarkable work.</P>
                 </div>
 
+                <!-- scroll down img-->
                 <img src="team/img/down arrow.png" class="scroll-down-icon" alt="scroll down">
-            </main>
+             </main>
+
         </header>
 
         <div class="timeline-container" id="timeline-1">
             <div class="timeline-header">
-                <h2 class="timeline-header_title"> Our Journey</h2>
-                <h3 class="timeline-header_subtitle"> Short Overview.</h3>
+                <h2 class="timeline-header_title">Our Journey</h2>
+                <h3 class="timeline-header_subtitle">Explore our transformative journey - a story of resilience, growth, and remarkable achievements.</h3>
             </div>
             <div class="timeline">
-                <div class="timeline-item" data-text="Image yearly Timeline">
+                <div class="timeline-item" data-text="Ideation">
                     <div class="timeline_content">
-                        <img class="timeline_img" src="team/img/img1.png"/>
+                        <img class="timeline_img" src="team/img/journey/prototyping.jpg"/>
+                        <h2 class="timeline_content-title">Prototyping</h2>
+                        <p class="timeline_content-desc">By utilizing the user needs that were collected, the team decided to follow a modified form of 10 for 10 group prototyping method. Each member was required to complete a prototype individually. This will allow us to have a multitude of ideas and approach as we will be designing them separately as well as allow us to understand each other’s mental model. </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-text="e">
+                    <div class="timeline_content">
+                        <img class="timeline_img" src="team/img/journey/matrix.png"/>
+                        <h2 class="timeline_content-title">Understanding Users' Needs</h2>
+                        <p class="timeline_content-desc">add a description</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-text="e">
+                    <div class="timeline_content">
+                        <img class="timeline_img" src="team/img/img2.png"/>
                         <h2 class="timeline_content-title">2000</h2>
                         <p class="timeline_content-desc">add a description</p>
                     </div>
                 </div>
 
-                <div class="timeline-item" data-text="Image yearly Timeline">
+                <div class="timeline-item" data-text="e">
+                    <div class="timeline_content">
+                        <img class="timeline_img" src="team/img/img2.png"/>
+                        <h2 class="timeline_content-title">2000</h2>
+                        <p class="timeline_content-desc">add a description</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-text="e">
+                    <div class="timeline_content">
+                        <img class="timeline_img" src="team/img/img2.png"/>
+                        <h2 class="timeline_content-title">2000</h2>
+                        <p class="timeline_content-desc">add a description</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-text="e">
                     <div class="timeline_content">
                         <img class="timeline_img" src="team/img/img2.png"/>
                         <h2 class="timeline_content-title">2000</h2>
@@ -88,9 +133,11 @@
             </div>
         </div>
 
-        <section class="testinomal-section" id="testimonial-section">
+        <!-- journey section -->
+        <section class="team-section" id="team-section">
+            
             <h1 class="section-title">Our Leadership Team</h1>
-            <p class="section-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="section-para">Meet the minds behind our success - a visionary leadership team driving excellence.</p>
 
             <div class="team-area">
                 <div class="container">
@@ -98,19 +145,17 @@
                         <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="single-team">
                                 <div class="img-area">
-                                    <img src="https://i.postimg.cc/qRjsQy6r/1.jpg" class="img-responsive" alt="">
-                                    <div class="social">
+                                    <img src="team/img/individual/daniel.jpg" class="img-responsive" alt="">
+                                    <div class="testinomal">
                                         <ul class="list-inline">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <h7>"These 3 weeks exposed me to a multitude of design thinking process and methods. Having to match mental models, prototype and search for a unique and distinct point was challenging. However, this enabled me to view design and features of a product objectively. Diving for a unique one-of-a-kind product was close to impossible hurdle that the team had to cross together.  
+                                                I hope that the team has delivered on the expectations that was held on us. It was enjoyable doing through many prototyping methods, brainstorming and collaborate to come up with a better idea altogether at the wee hours in the morning. If choose one of the many key takeaways, it would be that good ideas and design do not come naturally. It is through iterations after iterations, which is what makes them valuable."</h7>
                                         </ul>
                                     </div>
                                 </div>
                                     <div class="img-text">
-                                        <h4>John Doe</h4>
-                                        <h5>Front-End Developer</h5>
+                                        <h4>Daniel</h4>
+                                        <h5>Product Owner</h5>
                                   </div>
                             </div>
                         </div>
@@ -119,18 +164,20 @@
                             <div class="single-team">
                                 <div class="img-area">
                                     <img src="https://i.postimg.cc/qRjsQy6r/1.jpg" class="img-responsive" alt="">
-                                    <div class="social">
+                                    <div class="testinomal">
                                         <ul class="list-inline">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <h7>
+                                                "
+                                                    Designing has never been my strong suit. As someone who is methodological and loves the technical aspect on computing science, I often used to see it as a chore to a full webapp product whose features are the backend which should shine. It is only after the first iteration of prototype that we has to do ourselves that I realised that I was poor at coming up with a good design. An all encompassing design seemed out of reach the first week of this program. 
+                                                    The modified 10-by-10, design rapid ideation allowed the team to quickly progress. All in all, I am really proud of the product that we have put together. The interaction method is something that I have not seen in any websites. I am really glad to be able to host my work as a medium for others to display theirs as well.
+                                                "
+                                            </h7>
                                         </ul>
                                     </div>
                                 </div>
                                     <div class="img-text">
-                                        <h4>John Doe</h4>
-                                        <h5>Front-End Developer</h5>
+                                        <h4>Jonathan</h4>
+                                        <h5>Scrum Master</h5>
                                   </div>
                             </div>
                         </div>
@@ -138,99 +185,109 @@
                         <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="single-team">
                                 <div class="img-area">
-                                    <img src="https://i.postimg.cc/qRjsQy6r/1.jpg" class="img-responsive" alt="">
-                                    <div class="social">
+                                    <img src="team/img/individual/kahbee.jpg" class="img-responsive" alt="">
+                                    <div class="testinomal">
                                         <ul class="list-inline">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <h7>
+                                                "
+                                                    Innovation was the hardest part for me in the 3 weeks. I thought that finding a truly differentiated product in terms of interaction method. The team has a lot of ideas which were thrown out due to time and hardware limitations. Due to these constrains, the team had to ensure that an idea was innovative yet feasible with the resources available now. Even though it is not entirely new concept of interaction, I am really proud of our end results, and personally feel that it was a good display of what we could create in this short time span.  
+                                                    All in all, the key takeaway for me was the different perspective processes on innovation and the methods to utilise prototyping as a method and tool to get to this end point. It was eye opening for me to fully understand the perspective on how to make a product truly special to users. 
+                                                "
+                                            </h7>
                                         </ul>
                                     </div>
                                 </div>
                                     <div class="img-text">
-                                        <h4>John Doe</h4>
-                                        <h5>Front-End Developer</h5>
+                                        <h4>Kahbee</h4>
+                                        <h5>Developer</h5>
                                   </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="single-team">
                                 <div class="img-area">
-                                    <img src="https://i.postimg.cc/qRjsQy6r/1.jpg" class="img-responsive" alt="">
-                                    <div class="social">
+                                    <img src="team/img/individual/jaden.jpg" class="img-responsive" alt="">
+                                    <div class="testinomal">
                                         <ul class="list-inline">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <h7>
+                                                "
+                                                    The design process that we can undergone this past 3 week has been really interesting. Making prototypes separately based on the modified 10-by-10 method was new and refreshing as we do not usually get the freedom to design a webpage on our own. As our clients gave us majority of the freedom, it enabled us to think out of the box and allowed us to be able to design a web application that we are all proud of. This taught me truly how valuable being able to walk away proudly knowing that the designed was one that the team has collectively came up with is.
+                                                    I especially enjoyed being able to review the iterative process of our team and all the others in a glance on the webpage. This gave me a new appreciation and understanding the importance of showcasing our best work. 
+                                                "
+                                            </h7>
                                         </ul>
                                     </div>
                                 </div>
                                     <div class="img-text">
-                                        <h4>John Doe</h4>
-                                        <h5>Front-End Developer</h5>
+                                        <h4>Jaden</h4>
+                                        <h5>Developer</h5>
                                   </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="single-team">
                                 <div class="img-area">
-                                    <img src="https://i.postimg.cc/qRjsQy6r/1.jpg" class="img-responsive" alt="">
-                                    <div class="social">
+                                    <img src="team/img/individual/zheng_xiang.jpg" class="img-responsive" alt="">
+                                    <div class="testinomal">
                                         <ul class="list-inline">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <h7>
+                                                "
+                                                    It was great looking at the fruits of our labour at the end of this short span of 3 weeks. This journey was been challenging. The technical aspect was what challenged me the most as integrating technologies into a html page without a backend was not something that I have done before. It was a relief that we manged to solve the issue on hand before the dead line as we were honestly cutting close.  
+                                                    On top of this, the design process was something new to me as the design process that I was used to was strictly based on Human-Computer Interaction design and deviated in the sense that it is largely a user centric design. This design process, allowed us to innovate first then fir it in, which was the drastic difference comparatively to the projects that we have done up to done.  
+                                                "
+                                            </h7>
                                         </ul>
                                     </div>
                                 </div>
                                     <div class="img-text">
-                                        <h4>John Doe</h4>
-                                        <h5>Front-End Developer</h5>
+                                        <h4>Zheng Xiang</h4>
+                                        <h5>Developer</h5>
                                   </div>
                             </div>
                         </div>
                         
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="single-team">
                                 <div class="img-area">
                                     <img src="https://i.postimg.cc/qRjsQy6r/1.jpg" class="img-responsive" alt="">
-                                    <div class="social">
+                                    <div class="testinomal">
                                         <ul class="list-inline">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <h7>
+                                                "
+                                                    Embracing changes and moving with innovation is the biggest lesson that I have learned. My perspective on coming up with a purple cow product is what makes this 3-week valuable. It was never occurred to me that a product standing out may be a key indication of a successful product.   
+                                                    After going through the 10 prototypes that we have collectively made though the 3 iterative design process, I learned that there is always something to be objectively improved in a design. As such, no design is perfect, and striving for one with innovation and eye catching is something we can do to come close to such a product. 
+                                                "
+                                            </h7>
                                         </ul>
                                     </div>
                                 </div>
                                     <div class="img-text">
-                                        <h4>John Doe</h4>
-                                        <h5>Front-End Developer</h5>
+                                        <h4>Shi Jie</h4>
+                                        <h5>Developer</h5>
                                   </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="single-team">
                                 <div class="img-area">
-                                    <img src="https://i.postimg.cc/qRjsQy6r/1.jpg" class="img-responsive" alt="">
-                                    <div class="social">
+                                    <img src="team/img/individual/charles.jpg" class="img-responsive" alt="">
+                                    <div class="testinomal">
                                         <ul class="list-inline">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <h7>
+                                                "
+                                                Intended use is a challenging thing to convey. Personally, I feel that the challenge for our team was to simultaneously make an innovative product that was at the same time still intuitive for users based on previous mental models. As innovation is to stand out, making it based on old mental models was counter intuitive to us at first. However, little by little, I am proud that the team managed to do so by revamping the concept of an old television remote and presentation clicker into a modern smart controller smartphone.  
+                                                Regretfully, we were unable to create something that the world truly did not see before within this short span of time. However, I feel extremely proud of the end product you see on this site.
+                                                "
+                                            </h7>
                                         </ul>
                                     </div>
                                 </div>
                                     <div class="img-text">
-                                        <h4>John Doe</h4>
-                                        <h5>Front-End Developer</h5>
+                                        <h4>Charles</h4>
+                                        <h5>Developer</h5>
                                   </div>
                             </div>
                         </div>
@@ -239,491 +296,26 @@
             </div>
         </section>
 
-        <!-- animate on scroll JS CDN -->
+        <!-- footer -->
+        <footer>
+            <img src="team/img/UogSitLogo.png" class="footer-logo" alt="">
+            <div class="footer-text">
+                <p>University of Glasgow</p>
+                <p>Address: Glasgow G12 8QQ</p>
+                <p>Phone: 0141 330 2000</p>
+            </div>
+
+            <p class="copyright-line">This design is a concept design. Made by Team 11</p>
+        </footer>
+
+        <!-- animate on scoll JS CDN -->
+
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        
-        <!-- Local JS File(s)-->
-        <script src="team/app.js"></script>
+
+        <!-- Local JS File(s) -->
+
+        <script src="team/script.js"></script>
+
     </body>
-</html>
-
-<!--
-<!DOCTYPE html>
-<html lang="zxx">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Videograph Template">
-    <meta name="keywords" content="Videograph, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Videograph | Template</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/meet_the_team.css">  
-</head>
-
-<body>
-
-    <header class="header">
-        <video src="team_video.mp4" autoplay muted loop></video>
-
-        <div class ="nav-area">
-            <div class="logo"><a href="./index.html"><img src="img/logo.png" alt=""></a>
-</div>
-
-            <ul class="menu-area">
-                <li><a href="./index.html">Home</a></li>
-                <li class="active"><a href="./about.html">Meet the Team</a></li>
-            </ul>
-        </div>
-
-        <div class="welcome-text">
-            <h2>Smart Technolgy</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias doloribus eaque, earum expedita inventore voluptates.</p>
-            <button class="btn">contact us</button>
-        </div>
-    </header> 
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-10">
-                    <div class="header__nav__option">
-                        <nav class="header__nav__menu mobile-menu">
-                            <ul>
-                                <li><a href="./index.html">Home</a></li>
-                                <li class="active"><a href="./about.html">About</a></li>
-                                <li><a href="./portfolio.html">Portfolio</a></li>
-                                <li><a href="./services.html">Services</a></li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="./about.html">About</a></li>
-                                        <li><a href="./portfolio.html">Portfolio</a></li>
-                                        <li><a href="./blog.html">Blog</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="./contact.html">Contact</a></li>
-                            </ul>
-                        </nav>
-                        <div class="header__nav__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </header>
-
-    <div class="breadcrumb-option spad set-bg" data-setbg="img/breadcrumb-bg.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>About us</h2>
-                        <div class="breadcrumb__links">
-                            <a href="#">Home</a>
-                            <span>About</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section class="about spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="about__pic">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="about__pic__item about__pic__item--large set-bg"
-                                    data-setbg="img/about/about-1.jpg"></div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="about__pic__item set-bg" data-setbg="img/about/about-2.jpg"></div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="about__pic__item set-bg" data-setbg="img/about/about-3.jpg"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about__text">
-                        <div class="section-title">
-                            <span>About videograph</span>
-                            <h2>WHo we are?</h2>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="services__item">
-                                    <div class="services__item__icon">
-                                        <img src="img/icons/si-3.png" alt="">
-                                    </div>
-                                    <h4>Video distribution</h4>
-                                    <p>Whether you’re halfway through the editing process, or you.</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="services__item">
-                                    <div class="services__item__icon">
-                                        <img src="img/icons/si-4.png" alt="">
-                                    </div>
-                                    <h4>Video hosting</h4>
-                                    <p>Whether you’re halfway through the editing process, or you.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="about__text__desc">
-                            <p>Formed in 2006 by Matt Hobbs and Cael Jones, Videoprah is an award-winning, full-service
-                                production company specializing in commercial, broadcast, tourism & action sport video
-                                production services has been featured.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonial spad set-bg" data-setbg="img/testimonial-bg.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title center-title">
-                        <span>Loved By Clients</span>
-                        <h2>What clients say?</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="testimonial__slider owl-carousel">
-                    <div class="col-lg-4">
-                        <div class="testimonial__item">
-                            <div class="testimonial__text">
-                                <p>Delivers such a great service that it can benefit all kinds of people from any number
-                                    of industries.</p>
-                            </div>
-                            <div class="testimonial__author">
-                                <div class="testimonial__author__pic">
-                                    <img src="img/testimonial/ta-1.jpg" alt="">
-                                </div>
-                                <div class="testimonial__author__text">
-                                    <h5>Krista Attorn</h5>
-                                    <span>Web Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial__item">
-                            <div class="testimonial__text">
-                                <p>Videographer delivers such a great service that it can benefit all kinds of people
-                                    from any number.</p>
-                            </div>
-                            <div class="testimonial__author">
-                                <div class="testimonial__author__pic">
-                                    <img src="img/testimonial/ta-2.jpg" alt="">
-                                </div>
-                                <div class="testimonial__author__text">
-                                    <h5>Krista Attorn</h5>
-                                    <span>Web Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial__item">
-                            <div class="testimonial__text">
-                                <p>Videographer delivers such a great service that it can benefit all kinds of people
-                                    from any number.</p>
-                            </div>
-                            <div class="testimonial__author">
-                                <div class="testimonial__author__pic">
-                                    <img src="img/testimonial/ta-3.jpg" alt="">
-                                </div>
-                                <div class="testimonial__author__text">
-                                    <h5>Krista Attorn</h5>
-                                    <span>Web Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial__item">
-                            <div class="testimonial__text">
-                                <p>Delivers such a great service that it can benefit all kinds of people from any number
-                                    of industries.</p>
-                            </div>
-                            <div class="testimonial__author">
-                                <div class="testimonial__author__pic">
-                                    <img src="img/testimonial/ta-1.jpg" alt="">
-                                </div>
-                                <div class="testimonial__author__text">
-                                    <h5>Krista Attorn</h5>
-                                    <span>Web Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial__item">
-                            <div class="testimonial__text">
-                                <p>Videographer delivers such a great service that it can benefit all kinds of people
-                                    from any number.</p>
-                            </div>
-                            <div class="testimonial__author">
-                                <div class="testimonial__author__pic">
-                                    <img src="img/testimonial/ta-2.jpg" alt="">
-                                </div>
-                                <div class="testimonial__author__text">
-                                    <h5>Krista Attorn</h5>
-                                    <span>Web Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="counter">
-        <div class="container">
-            <div class="counter__content">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="counter__item">
-                            <div class="counter__item__text">
-                                <img src="img/icons/ci-1.png" alt="">
-                                <h2 class="counter_num">230</h2>
-                                <p>Compled Projects</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="counter__item second__item">
-                            <div class="counter__item__text">
-                                <img src="img/icons/ci-2.png" alt="">
-                                <h2 class="counter_num">1068</h2>
-                                <p>Happy clients</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="counter__item third__item">
-                            <div class="counter__item__text">
-                                <img src="img/icons/ci-3.png" alt="">
-                                <h2 class="counter_num">230</h2>
-                                <p>Perspective clients</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="counter__item four__item">
-                            <div class="counter__item__text">
-                                <img src="img/icons/ci-4.png" alt="">
-                                <h2 class="counter_num">230</h2>
-                                <p>Compled Projects</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="team spad set-bg" data-setbg="img/team-bg.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title team__title">
-                        <span>Nice to meet</span>
-                        <h2>OUR Team</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                    <div class="team__item set-bg" data-setbg="img/team/team-1.jpg">
-                        <div class="team__item__text">
-                            <h4>AMANDA STONE</h4>
-                            <p>Videographer</p>
-                            <div class="team__item__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-dribbble"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                    <div class="team__item team__item--second set-bg" data-setbg="img/team/team-2.jpg">
-                        <div class="team__item__text">
-                            <h4>AMANDA STONE</h4>
-                            <p>Videographer</p>
-                            <div class="team__item__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-dribbble"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                    <div class="team__item team__item--third set-bg" data-setbg="img/team/team-3.jpg">
-                        <div class="team__item__text">
-                            <h4>AMANDA STONE</h4>
-                            <p>Videographer</p>
-                            <div class="team__item__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-dribbble"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                    <div class="team__item team__item--four set-bg" data-setbg="img/team/team-4.jpg">
-                        <div class="team__item__text">
-                            <h4>AMANDA STONE</h4>
-                            <p>Videographer</p>
-                            <div class="team__item__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-dribbble"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 p-0">
-                    <div class="team__btn">
-                        <a href="#" class="primary-btn">Meet Our Team</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__top">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="footer__top__logo">
-                            <a href="#"><img src="img/logo.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="footer__top__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer__option">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="footer__option__item">
-                            <h5>About us</h5>
-                            <p>Formed in 2006 by Matt Hobbs and Cael Jones, Videoprah is an award-winning, full-service
-                                production company specializing.</p>
-                            <a href="#" class="read__more">Read more <span class="arrow_right"></span></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3">
-                        <div class="footer__option__item">
-                            <h5>Who we are</h5>
-                            <ul>
-                                <li><a href="#">Team</a></li>
-                                <li><a href="#">Carrers</a></li>
-                                <li><a href="#">Contact us</a></li>
-                                <li><a href="#">Locations</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3">
-                        <div class="footer__option__item">
-                            <h5>Our work</h5>
-                            <ul>
-                                <li><a href="#">Feature</a></li>
-                                <li><a href="#">Latest</a></li>
-                                <li><a href="#">Browse Archive</a></li>
-                                <li><a href="#">Video for web</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="footer__option__item">
-                            <h5>Newsletter</h5>
-                            <p>Videoprah is an award-winning, full-service production company specializing.</p>
-                            <form action="#">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer__copyright">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-
-                        <p class="footer__copyright__text">Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                            All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/masonry.pkgd.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-    -->
-</body>
 </html>
