@@ -1,0 +1,142 @@
+/* styles.css */
+
+.row {
+  display: flex;
+}
+.flip-card {
+  height: 100%;
+  width: 100%;
+  display: flex; /* Make the card a flex container */
+  align-items: center; /* Align items vertically at the center */
+  border-radius: 10px;
+  border: 2px solid #333;
+  padding: 10px;
+  flex-direction: column;
+  background-color: transparent;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* Target the group photo image using its class */
+.group-photo {
+  width: 70%; /* Set the width of the image */
+  height: 100%; /* Set the height of the image */
+}
+
+.project-description {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.card-reflection {
+  font-weight: bold;
+  font-size: larger;
+}
+
+/* Circular profile images styling */
+.profile-image {
+  margin-left: 1%;
+  width: 80px;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%; /* Make the image circular */
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-members {
+  text-align: left;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.student-name {
+  font-weight: bold;
+  font-size: small;
+}
+
+.profile-image {
+  padding-right: 10px;
+}
+.profile-text {
+  display: flex; /* Make the elements inside this container appear side by side */
+  flex-direction: column; /* Align elements vertically within the container */
+  font-size: smaller;
+}
+
+.scene {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  /*   border: 1px solid #CCC; */
+  margin: 40px 0;
+  perspective: 600px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 10px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+  background: rgb(0, 0, 0);
+}
+
+.card__face--back {
+  background: rgb(0, 0, 0);
+  transform: rotateY(180deg);
+}
