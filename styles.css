@@ -2,6 +2,7 @@
 
 .row {
   display: flex;
+  flex-wrap: nowrap;
 }
 .flip-card {
   height: 100%;
@@ -63,9 +64,6 @@
 /* Circular profile images styling */
 .profile-image {
   margin-left: 1%;
-  width: 80px;
-  height: 100%;
-  overflow: hidden;
   border-radius: 50%; /* Make the image circular */
 }
 
@@ -76,9 +74,10 @@
 }
 
 .card-members {
+  padding-top: 2%;
   text-align: left;
   font-weight: bold;
-  font-size: larger;
+  font-size: x-large;
 }
 
 .student-name {
@@ -102,8 +101,8 @@
   /*   border: 1px solid #CCC; */
   margin: 40px 0;
   perspective: 600px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .card {
@@ -139,4 +138,64 @@
 .card__face--back {
   background: rgb(0, 0, 0);
   transform: rotateY(180deg);
+}
+
+h1{
+  color: #1c68b3 ;
+  font-size:clamp(2.5rem, 10vw, 5rem);
+  font-family: 'Parisienne', cursive;
+}
+.card-pink{
+border-radius: 6px; 
+  border-bottom:4px solid #ff2c95!important;
+}
+.card-blue{
+border-radius: 6px; 
+  border-bottom:4px solid #1c68b3 !important;
+}
+
+.col .card img{
+aspect-ratio: 1 / 1;
+  object-fit:cover;
+}
+.card-body{
+  padding:1rem 1.5rem;
+}
+.card-body p{
+  color:#4B5563;
+}
+.card-blue svg{
+  fill:#1c68b3 ;
+}
+.card-pink svg{
+  fill:#ff2c95;
+}
+.card-blue .card-footer p{
+  color:#1c68b3 ;
+}
+.card-pink .card-footer p{
+  color: #ff2c95;
+}
+.card-shape{
+  position:relative;
+}
+.custom-shape-divider-bottom-1634717805 {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1634717805 svg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 50px;
+}
+
+.custom-shape-divider-bottom-1634717805 .shape-fill {
+    fill: #FFFFFF;
 }
