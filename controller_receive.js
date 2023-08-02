@@ -1,47 +1,38 @@
 //create an instance of NesSmartController, optionally specify a peer ID for the PC browser peer
 //firstconnected is true by default, only the first player to connect to a specific player ID will be allowed to keep it, the rest of the connections to the same ID won't be allowed
-const container = document.querySelector(".container");
+const simplePeer = new smartcontroller.NesSmartController();
+const container = document.querySelector('.container');
 let inVideo = false;
 let previousSelectedDiv; // Variable to keep track of the selected div
 let newAHrefTag;
 let selectedCard = 1;
 let selectedRow = 1;
 let selectedCol = 1;
-let simplePeer;
 let carousel1Midpoint = 2;
 let carousel2Midpoint = 2;
 let carousel3Midpoint = 2;
 let carousel4Midpoint = 2;
 const temp = window.location.pathname;
 
-if (temp.split("/")[temp.split("/").length - 1] === "index.html") {
-  const simplePeerData = JSON.parse(sessionStorage.getItem("smartControllerInstance"));
-  if (!simplePeerData) {
-    //create and display a QR code for the smartphones, specify url for the controller, div element for the code to be displayed,
-    //optionally size and a player ID, in this case the player ID is set to 1
-    //the url is an official Nes Controller compatible with the NesSmartController class
-    simplePeer = new smartcontroller.NesSmartController();
 
-    simplePeer.createQrCode(
-      "https://smartcontrollerjs.github.io/Controllers/nesController.html",
-      "qrcode",
-      150,
-      150,
-      "1"
-    );
+//create and display a QR code for the smartphones, specify url for the controller, div element for the code to be displayed,
+//optionally size and a player ID, in this case the player ID is set to 1
+//the url is an official Nes Controller compatible with the NesSmartController class
+simplePeer.createQrCode(
+  "https://smartcontrollerjs.github.io/Controllers/nesController.html",
+  "qrcode",
+  150,
+  150,
+  "1"
+);
 
-    // Save the connection data in sessionStorage
-    simplePeer.on("connection", function (data) {
-      console.log(data)
-      const connectionData = {
-        peerId: data.provider._id,
-        controllerId: data.peer // Assuming you have a property called 'signalingData' in the 'data' object
-      };
-      sessionStorage.setItem("connectionData", JSON.stringify(connectionData));
-    });
-  }
-  processData();
-}
+//listen for new connections and log them in the console
+simplePeer.on("connection", function (data) {
+  console.log(data);
+});
+
+processData();
+
 
 
 function findFirstItemInRow(selectedRow, divArray, direction) {
@@ -127,7 +118,7 @@ function mapClickableDivs() {
 
 
 
-function simulateClick(elementId){
+function simulateClick(elementId) {
   // Simulate click on the element with ID 'myButton'
   const elementToClick = document.getElementById(elementId);
   elementToClick.click();
@@ -150,11 +141,11 @@ function simulateButtonClick(buttonTitleToClick) {
   }
 }
 
-function recalculateSelection(scrollLink){
-  if (scrollLink === "#team"){
+function recalculateSelection(scrollLink) {
+  if (scrollLink === "#team") {
     selectedRow = 9
     selectedCol = 1
-  } else if (scrollLink==="#call-action"){
+  } else if (scrollLink === "#call-action") {
     selectedRow = 19
     selectedCol = 1
   }
@@ -186,7 +177,8 @@ function processData() {
 
   if (!previousSelectedDiv) {
     previousSelectedDiv = divArray[1][1];
-    return;
+    setTimeout(processData, 300)
+    return
   }
 
   if (simplePeer.controllerList[1]) {
@@ -196,7 +188,6 @@ function processData() {
 
     for (var id of button_id) {
       if (controller.buttons[id]) {
-        console.log(controller.buttons[id]);
         // Restore the border of the previously selected div
         if (
           (id === "up" && selectedRow === 1) ||
@@ -206,9 +197,11 @@ function processData() {
         } else if (id === "up") {
           console.log("Up arrow key pressed.");
           selectedRow -= 1;
+          selectedCol = 1;
         } else if (id === "down") {
           console.log("Down arrow key pressed.");
           selectedRow += 1;
+          selectedCol = 1;
         } else if (id === "left") {
           console.log("Left arrow key pressed.");
           selectedCol -= 1;
@@ -222,10 +215,18 @@ function processData() {
           if (newAHrefTag.startsWith('./')) {
             inVideo = false
             window.location.assign(newAHrefTag);
+          } else if (newAHrefTag.startsWith('#')) {
+            const scrollLink = document.querySelector(`a.page-scroll[href="${newAHrefTag}"]`);
+            if (scrollLink) {
+              recalculateSelection(newAHrefTag);
+              console.log("new row: " + selectedRow + " selectedCol: " + selectedCol)
+              scrollLink.click();
+            }
+          } else {
+            const linkObject = document.getElementById(newAHrefTag);
+            inVideo = true;
+            linkObject.click();
           }
-          const linkObject = document.getElementById(newAHrefTag);
-          linkObject.click();
-          inVideo = true;
         } else if (id === "b" && newAHrefTag && inVideo) {
           simulateButtonClick("Close (Esc)");
           inVideo = false;
@@ -235,11 +236,12 @@ function processData() {
         }
         // Attempt to get the new selected div
         let newSelectedDiv = divArray[selectedRow][selectedCol];
-        if (
-          !newSelectedDiv &&
-          (id === "up" || id === "down")
-        ) {
-          newSelectedDiv = findFirstItemInRow(selectedRow, divArray);
+        if (!newSelectedDiv) {
+          if (id === "up") {
+            newSelectedDiv = findFirstItemInRow(selectedRow, divArray, "up");
+          } else {
+            newSelectedDiv = findFirstItemInRow(selectedRow, divArray, "down");
+          }
           const className = findClassNameOfDivElement(newSelectedDiv);
           selectedRow = parseInt(className.split("-")[2]);
           selectedCol = parseInt(className.split("-")[3]);
@@ -271,9 +273,19 @@ function processData() {
             selectedCol -= 1;
           }
           console.log("doing nothing");
-          return; // Do nothing if the selectedDiv is undefined (out of bounds)
+          setTimeout(processData, 300)
+          return
         }
 
+        if (selectedCard === 1 && (id === "up" || id === "down")) {
+          carousel1Midpoint,
+          carousel2Midpoint,
+          carousel3Midpoint,
+          carousel4Midpoint = 2,
+          2,
+          2,
+          2;
+        }
         previousSelectedDiv.classList.remove("selected");
         previousSelectedDiv.style.border = emptyBorder;
         // Set the new selected div as the current selected div
@@ -284,21 +296,60 @@ function processData() {
         // Store the current selected div as the previously selected div
         previousSelectedDiv = newSelectedDiv;
         newAHrefTag = findAHrefTag(newSelectedDiv)
-        if (currentPage === "/team.html" && selectedRow === 1 && selectedCol === 1) {
-          // Scroll to the top of the page
-          requestAnimationFrame(() => {
-            document.documentElement.scrollIntoView({
-              behavior: "smooth"
-            });
-          });
-        } else {
-          // Use requestAnimationFrame to scroll smoothly to the new selected div
-          requestAnimationFrame(() => {
-            newSelectedDiv.scrollIntoView({
-              behavior: "smooth"
-            });
-          });
+
+        // check what is the current midpoint
+        // check what is the new selected div
+        // if selected div is <> +-1 of the current midpoint
+        let midpoint, leftbtn, rightbtn;
+        if (selectedRow === 3) {
+          midpoint = carousel1Midpoint;
+          leftbtn = "left-1";
+          rightbtn = "right-1";
         }
+        if (selectedRow === 4) {
+          midpoint = carousel2Midpoint;
+          leftbtn = "left-2";
+          rightbtn = "right-2";
+        }
+        if (selectedRow === 5) {
+          midpoint = carousel3Midpoint;
+          leftbtn = "left-3";
+          rightbtn = "right-3";
+        }
+        if (selectedRow === 6) {
+          midpoint = carousel4Midpoint;
+          leftbtn = "left-4";
+          rightbtn = "right-4";
+        }
+        if (selectedCol > midpoint + 1) {
+          simulateClick(rightbtn)
+          console.log("simulating right click")
+          if (selectedRow === 3) {
+            carousel1Midpoint += 1
+          } else if (selectedRow === 4) {
+            carousel2Midpoint += 1
+          } else if (selectedRow === 5) {
+            carousel3Midpoint += 1
+          } else if (selectedRow === 6) {
+            carousel4Midpoint += 1
+          }
+        } else if (selectedCol < midpoint - 1) {
+          simulateClick(leftbtn)
+          console.log("simulating left click")
+          if (selectedRow === 3) {
+            carousel1Midpoint -= 1
+          } else if (selectedRow === 4) {
+            carousel2Midpoint -= 1
+          } else if (selectedRow === 5) {
+            carousel3Midpoint -= 1
+          } else if (selectedRow === 6) {
+            carousel4Midpoint -= 1
+          }
+        }
+
+        // Use requestAnimationFrame to scroll smoothly to the new selected div
+        smoothScrollToMiddle(newSelectedDiv)
+
         setTimeout(() => {
           // After a short delay, reset the border to its original size
           newSelectedDiv.style.border = originalBorderSize;
@@ -306,7 +357,7 @@ function processData() {
       }
     }
   }
-  setTimeout(processData, 200); // 1000 milliseconds = 1 second
+  setTimeout(processData, 300); // 1000 milliseconds = 1 second
 }
 
 
@@ -372,8 +423,9 @@ document.addEventListener("keydown", function (event) {
     // Trigger a click event on the targeted a element
     // Check if href starts with './'
     if (newAHrefTag.startsWith('./')) {
+      inVideo = false
       window.location.assign(newAHrefTag);
-    } else if (newAHrefTag.startsWith('#')){
+    } else if (newAHrefTag.startsWith('#')) {
       const scrollLink = document.querySelector(`a.page-scroll[href="${newAHrefTag}"]`);
       if (scrollLink) {
         recalculateSelection(newAHrefTag);
@@ -382,6 +434,7 @@ document.addEventListener("keydown", function (event) {
       }
     } else {
       const linkObject = document.getElementById(newAHrefTag);
+      inVideo = true;
       linkObject.click();
     }
   } else if (event.key === "Enter" && !newAHrefTag) {
@@ -395,7 +448,7 @@ document.addEventListener("keydown", function (event) {
   ) {
     if (event.key === "ArrowUp") {
       newSelectedDiv = findFirstItemInRow(selectedRow, divArray, "up");
-    } else{
+    } else {
       newSelectedDiv = findFirstItemInRow(selectedRow, divArray, "down");
     }
     const className = findClassNameOfDivElement(newSelectedDiv);
@@ -432,7 +485,13 @@ document.addEventListener("keydown", function (event) {
   }
 
   if (selectedCard === 1 && (event.key === "ArrowUp" || event.key === "ArrowDown")) {
-    carousel1Midpoint, carousel2Midpoint, carousel3Midpoint, carousel4Midpoint = 2,2,2,2;
+    carousel1Midpoint,
+    carousel2Midpoint,
+    carousel3Midpoint,
+    carousel4Midpoint = 2,
+    2,
+    2,
+    2;
   }
   previousSelectedDiv.classList.remove("selected");
   previousSelectedDiv.style.border = emptyBorder;
@@ -450,32 +509,48 @@ document.addEventListener("keydown", function (event) {
   // check what is the new selected div
   // if selected div is <> +-1 of the current midpoint
   let midpoint, leftbtn, rightbtn;
-  if (selectedRow === 3 ){ midpoint = carousel1Midpoint; leftbtn = "left-1"; rightbtn = "right-1";}
-  if (selectedRow === 4 ){ midpoint = carousel2Midpoint; leftbtn = "left-2"; rightbtn = "right-2";}
-  if (selectedRow === 5 ){ midpoint = carousel3Midpoint; leftbtn = "left-3"; rightbtn = "right-3";}
-  if (selectedRow === 6 ){ midpoint = carousel4Midpoint; leftbtn = "left-4"; rightbtn = "right-4";}
-  if (selectedCol > midpoint+1){
+  if (selectedRow === 3) {
+    midpoint = carousel1Midpoint;
+    leftbtn = "left-1";
+    rightbtn = "right-1";
+  }
+  if (selectedRow === 4) {
+    midpoint = carousel2Midpoint;
+    leftbtn = "left-2";
+    rightbtn = "right-2";
+  }
+  if (selectedRow === 5) {
+    midpoint = carousel3Midpoint;
+    leftbtn = "left-3";
+    rightbtn = "right-3";
+  }
+  if (selectedRow === 6) {
+    midpoint = carousel4Midpoint;
+    leftbtn = "left-4";
+    rightbtn = "right-4";
+  }
+  if (selectedCol > midpoint + 1) {
     simulateClick(rightbtn)
     console.log("simulating right click")
-    if (selectedRow === 3){
+    if (selectedRow === 3) {
       carousel1Midpoint += 1
-    } else if (selectedRow === 4){
+    } else if (selectedRow === 4) {
       carousel2Midpoint += 1
-    } else if (selectedRow === 5){
+    } else if (selectedRow === 5) {
       carousel3Midpoint += 1
-    } else if(selectedRow === 6){
+    } else if (selectedRow === 6) {
       carousel4Midpoint += 1
     }
-  } else if (selectedCol < midpoint-1){
+  } else if (selectedCol < midpoint - 1) {
     simulateClick(leftbtn)
     console.log("simulating left click")
-    if (selectedRow === 3){
+    if (selectedRow === 3) {
       carousel1Midpoint -= 1
-    } else if (selectedRow === 4){
+    } else if (selectedRow === 4) {
       carousel2Midpoint -= 1
-    } else if (selectedRow === 5){
+    } else if (selectedRow === 5) {
       carousel3Midpoint -= 1
-    } else if(selectedRow === 6){
+    } else if (selectedRow === 6) {
       carousel4Midpoint -= 1
     }
   }
