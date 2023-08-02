@@ -405,31 +405,87 @@ document.addEventListener("mouseup", dragStop4);
 wrapper4.addEventListener("mouseenter", () => clearTimeout(timeoutId4));
 wrapper4.addEventListener("mouseleave", autoPlay4);
 
-$(document).ready(function () {
-  $(".card-slider").slick({
-    dots: false,
-    arrows: true,
-    slidesToShow: 4,
-    infinite: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
+const wrapper5 = document.querySelector(".wrapper-5");
+const carousel5 = document.querySelector(".carousel-5");
+const firstCardWidth5 = carousel5.querySelector(".cardnewer").offsetWidth;
+const arrowBtns5 = document.querySelectorAll(".wrapper-5 i");
+
+const carouselChildrens5 = [...carousel5.children];
+let isDragging5 = false,
+  isAutoPlay5 = true,
+  startX5,
+  startScrollLeft5,
+  timeoutId5;
+const cardPerView5 = 1; // Set to 1 to display only one card at a time
+
+// Calculate the width of the carousel based on the number of cards to display
+const carouselWidth5 = firstCardWidth5 * cardPerView5;
+
+carouselChildrens5
+  .slice(-cardPerView5)
+  .reverse()
+  .forEach((card) => {
+    carousel5.insertAdjacentHTML("afterbegin", card.outerHTML);
+  });
+
+carouselChildrens5.slice(0, cardPerView5).forEach((card) => {
+  carousel5.insertAdjacentHTML("beforeend", card.outerHTML);
+});
+
+carousel5.classList.add("no-transition");
+carousel5.scrollLeft = carouselWidth5; // Set the initial scroll to show the first card
+carousel5.classList.remove("no-transition");
+
+arrowBtns5.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    carousel5.scrollLeft +=
+      btn.id == "left-5" ? -carouselWidth5 : carouselWidth5;
   });
 });
+
+const dragStart5 = (e) => {
+  isDragging5 = true;
+  carousel5.classList.add("dragging");
+  startX5 = e.pageX;
+  startScrollLeft5 = carousel5.scrollLeft;
+};
+
+const dragging5 = (e) => {
+  if (!isDragging5) return;
+  carousel5.scrollLeft = startScrollLeft5 - (e.pageX - startX5);
+};
+
+const dragStop5 = () => {
+  isDragging5 = false;
+  carousel5.classList.remove("dragging");
+};
+
+const infiniteScroll5 = () => {
+  if (carousel5.scrollLeft === 0) {
+    carousel5.classList.add("no-transition");
+    carousel5.scrollLeft = carousel5.scrollWidth - carouselWidth5;
+    carousel5.classList.remove("no-transition");
+  } else if (
+    Math.ceil(carousel5.scrollLeft) >=
+    carousel5.scrollWidth - carouselWidth5
+  ) {
+    carousel5.classList.add("no-transition");
+    carousel5.scrollLeft = carouselWidth5;
+    carousel5.classList.remove("no-transition");
+  }
+  clearTimeout(timeoutId5);
+  if (!wrapper5.matches(":hover")) autoPlay5();
+};
+
+const autoPlay5 = () => {
+  if (window.innerWidth < 800 || !isAutoPlay5) return;
+  timeoutId5 = setTimeout(() => (carousel5.scrollLeft += carouselWidth5), 2500);
+};
+
+autoPlay5();
+carousel5.addEventListener("mousedown", dragStart5);
+carousel5.addEventListener("mousemove", dragging5);
+document.addEventListener("mouseup", dragStop5);
+carousel5.addEventListener("scroll", infiniteScroll5);
+wrapper5.addEventListener("mouseenter", () => clearTimeout(timeoutId5));
+wrapper5.addEventListener("mouseleave", autoPlay5);

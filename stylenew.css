@@ -1,9 +1,9 @@
 .scene {
     display: inline-block;
-    width: 200px;
-    height: 260px;
+    width: 400px;
+    height: 400px;
   /*   border: 1px solid #CCC; */
-    margin: 40px 0;
+    margin: 30px 0;
     perspective: 600px;
   }
   
@@ -34,11 +34,11 @@
   }
   
   .card__face--front {
-    background: crimson;
+    background: rgb(188, 188, 188);
   }
   
   .card__face--back {
-    background: slateblue;
+    background: rgb(177, 177, 177);
     transform: rotateY(180deg);
   }
   
