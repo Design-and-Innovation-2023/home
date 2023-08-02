@@ -4,12 +4,15 @@ const container = document.querySelector(".container");
 let inVideo = false;
 let previousSelectedDiv; // Variable to keep track of the selected div
 let newAHrefTag;
+let selectedCard = 1;
 let selectedRow = 1;
 let selectedCol = 1;
 let simplePeer;
+let carousel1Midpoint = 2;
+let carousel2Midpoint = 2;
+let carousel3Midpoint = 2;
+let carousel4Midpoint = 2;
 const temp = window.location.pathname;
-
-
 
 if (temp.split("/")[temp.split("/").length - 1] === "index.html") {
   const simplePeerData = JSON.parse(sessionStorage.getItem("smartControllerInstance"));
@@ -36,50 +39,39 @@ if (temp.split("/")[temp.split("/").length - 1] === "index.html") {
       };
       sessionStorage.setItem("connectionData", JSON.stringify(connectionData));
     });
-  } else {
-    console.log("attemping to retrieve old connections")
-    const savedConnectionData = JSON.parse(sessionStorage.getItem("connectionData"));
-    if (savedConnectionData) {
-      const {
-        peerId,
-        signalingData
-      } = savedConnectionData;
-
-      // Reuse the connection with the saved data
-      simplePeer = new smartcontroller.NesSmartController(peerId);
-    }
   }
-} else {
-  // Retrieve the instance of simplePeer from sessionStorage
-  console.log("attemping to retrieve old connections")
-  const savedConnectionData = JSON.parse(sessionStorage.getItem("connectionData"));
-  // Reuse the connection with the saved data
-  const peerid = savedConnectionData.peerId;
-  const controllerid = savedConnectionData.controllerId;
-  console.log("reusing old connection:" + peerid);
-  // Connect the new peer ID to the existing controller ID
-  simplePeer = new smartcontroller.NesSmartController({ peerid: peerid });
-  simplePeer.connectToPeer(controllerid);
+  processData();
 }
 
 
-processData();
-
-function findFirstItemInRow(selectedRow, divArray) {
-  if (!divArray[selectedRow]) {
-    return null; // Return null if the selected row doesn't exist in the 2D matrix
+function findFirstItemInRow(selectedRow, divArray, direction) {
+  let rowStep = 1; // Default to moving downward
+  if (direction === "up") {
+    rowStep = -1; // Set to moving upward
   }
 
-  for (const element of divArray[selectedRow]) {
-    const item = element;
-    if (item) {
-      // If the item in the column is not null, return it
-      return item;
+  let row = selectedRow;
+  while (row >= 0 && row < divArray.length) {
+    if (!divArray[row]) {
+      row += rowStep; // Move to the next row based on direction
+      continue; // Skip if the row doesn't exist in the 2D matrix
     }
+
+    for (const element of divArray[row]) {
+      const item = element;
+      if (item) {
+        // If the item in the column is not null, return it
+        return item;
+      }
+    }
+
+    row += rowStep; // Move to the next row based on direction
   }
 
-  return null; // Return null if no item with a value is found in the row
+  return null; // Return null if no item with a value is found in the rows in the specified direction
 }
+
+
 
 function findClassNameOfDivElement(divElement) {
   if (divElement instanceof HTMLDivElement) {
@@ -98,37 +90,15 @@ function findAHrefTag(divElement) {
     // If 'myLink' is found, get its 'id' attribute
     const linkId = myLink.id;
     if (linkId) {
-      console.log("link found: " + linkId);
       return linkId;
     } else {
       // If 'id' attribute is not found, get the 'href' attribute
       const href = myLink.getAttribute('href');
-      console.log("href found: " + href);
       return href;
     }
   } else {
-    console.log("No 'a' tag found inside 'myDiv'.");
     return null;
   }
-}
-
-// Function to simulate the hover effect
-function simulateHoverEffect(targetDiv) {
-  targetDiv.classList.add("myDivHovered");
-
-  // Remove the hover effect after a short delay (500ms)
-  setTimeout(() => {
-    targetDiv.classList.remove("myDivHovered");
-  }, 500);
-}
-
-function resetAllDivBorders() {
-  const allClickableDivs = document.querySelectorAll(
-    '[class^="clickableDiv-"]'
-  );
-  allClickableDivs.forEach((div) => {
-    div.style.border = "none";
-  });
 }
 
 function mapClickableDivs() {
@@ -154,6 +124,15 @@ function mapClickableDivs() {
   return divArray;
 }
 
+
+
+
+function simulateClick(elementId){
+  // Simulate click on the element with ID 'myButton'
+  const elementToClick = document.getElementById(elementId);
+  elementToClick.click();
+}
+
 function simulateButtonClick(buttonTitleToClick) {
   // Find the button element based on its title
   const buttons = document.querySelectorAll('button'); // Or use any other attribute to select the button
@@ -171,17 +150,43 @@ function simulateButtonClick(buttonTitleToClick) {
   }
 }
 
+function recalculateSelection(scrollLink){
+  if (scrollLink === "#team"){
+    selectedRow = 9
+    selectedCol = 1
+  } else if (scrollLink==="#call-action"){
+    selectedRow = 19
+    selectedCol = 1
+  }
+}
+
+function smoothScrollToMiddle(element) {
+  console.log('smooth scrolling')
+  const elementRect = element.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+  const additionalScroll = (viewportHeight - elementRect.height) / 2;
+
+  // Use requestAnimationFrame to scroll smoothly to the middle of the element
+  requestAnimationFrame(() => {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  });
+}
+
 // A function that checks if player 1 is connected, if yes then check the arrow keys to highlight the buttons
 function processData() {
   const divArray = mapClickableDivs();
   const container = document.querySelector(".container");
   const emptyBorder = "none"; // Original border size
-  const originalBorderSize = "2px solid blue"; // Original border size
-  const enlargedBorderSize = "4px solid blue"; // Enlarged border size
+  const originalBorderSize = "2px solid red"; // Original border size
+  const enlargedBorderSize = "4px solid red"; // Enlarged border size
   const currentPage = window.location.pathname; // Check the current HTML page
 
   if (!previousSelectedDiv) {
     previousSelectedDiv = divArray[1][1];
+    return;
   }
 
   if (simplePeer.controllerList[1]) {
@@ -330,14 +335,16 @@ function processData() {
 
 document.addEventListener("keydown", function (event) {
   const divArray = mapClickableDivs();
+  console.log(divArray);
   const container = document.querySelector(".container");
   const emptyBorder = "none"; // Original border size
-  const originalBorderSize = "2px solid blue"; // Original border size
-  const enlargedBorderSize = "4px solid blue"; // Enlarged border size
+  const originalBorderSize = "2px solid red"; // Original border size
+  const enlargedBorderSize = "4px solid red"; // Enlarged border size
   const currentPage = window.location.pathname; // Check the current HTML page
 
   if (!previousSelectedDiv) {
     previousSelectedDiv = divArray[1][1];
+    return;
   }
 
   if (
@@ -348,9 +355,11 @@ document.addEventListener("keydown", function (event) {
   } else if (event.key === "ArrowUp") {
     console.log("Up arrow key pressed.");
     selectedRow -= 1;
+    selectedCol = 1;
   } else if (event.key === "ArrowDown") {
     console.log("Down arrow key pressed.");
     selectedRow += 1;
+    selectedCol = 1;
   } else if (event.key === "ArrowLeft") {
     console.log("Left arrow key pressed.");
     selectedCol -= 1;
@@ -364,9 +373,17 @@ document.addEventListener("keydown", function (event) {
     // Check if href starts with './'
     if (newAHrefTag.startsWith('./')) {
       window.location.assign(newAHrefTag);
+    } else if (newAHrefTag.startsWith('#')){
+      const scrollLink = document.querySelector(`a.page-scroll[href="${newAHrefTag}"]`);
+      if (scrollLink) {
+        recalculateSelection(newAHrefTag);
+        console.log("new row: " + selectedRow + " selectedCol: " + selectedCol)
+        scrollLink.click();
+      }
+    } else {
+      const linkObject = document.getElementById(newAHrefTag);
+      linkObject.click();
     }
-    const linkObject = document.getElementById(newAHrefTag);
-    linkObject.click();
   } else if (event.key === "Enter" && !newAHrefTag) {
     console.log("No ahref tag to enter")
   }
@@ -376,7 +393,11 @@ document.addEventListener("keydown", function (event) {
     !newSelectedDiv &&
     (event.key === "ArrowUp" || event.key === "ArrowDown")
   ) {
-    newSelectedDiv = findFirstItemInRow(selectedRow, divArray);
+    if (event.key === "ArrowUp") {
+      newSelectedDiv = findFirstItemInRow(selectedRow, divArray, "up");
+    } else{
+      newSelectedDiv = findFirstItemInRow(selectedRow, divArray, "down");
+    }
     const className = findClassNameOfDivElement(newSelectedDiv);
     selectedRow = parseInt(className.split("-")[2]);
     selectedCol = parseInt(className.split("-")[3]);
@@ -410,6 +431,9 @@ document.addEventListener("keydown", function (event) {
     return; // Do nothing if the selectedDiv is undefined (out of bounds)
   }
 
+  if (selectedCard === 1 && (event.key === "ArrowUp" || event.key === "ArrowDown")) {
+    carousel1Midpoint, carousel2Midpoint, carousel3Midpoint, carousel4Midpoint = 2,2,2,2;
+  }
   previousSelectedDiv.classList.remove("selected");
   previousSelectedDiv.style.border = emptyBorder;
   // Set the new selected div as the current selected div
@@ -420,27 +444,45 @@ document.addEventListener("keydown", function (event) {
   // Store the current selected div as the previously selected div
   previousSelectedDiv = newSelectedDiv;
   newAHrefTag = findAHrefTag(newSelectedDiv)
-  console.log("current div: " + findClassNameOfDivElement(newSelectedDiv))
   console.log(selectedRow + " " + selectedCol + " " + newAHrefTag)
-  if (currentPage.split("/")[currentPage.split("/").length - 1] === "team.html" && selectedRow === 1 && selectedCol === 1) {
-    // Scroll to the top of the page
-    requestAnimationFrame(() => {
-      document.documentElement.scrollIntoView({
-        behavior: "smooth"
-      });
-    });
-  } else {
-    // Use requestAnimationFrame to scroll smoothly to the new selected div
-    requestAnimationFrame(() => {
-      newSelectedDiv.scrollIntoView({
-        behavior: "smooth"
-      });
-    });
+
+  // check what is the current midpoint
+  // check what is the new selected div
+  // if selected div is <> +-1 of the current midpoint
+  let midpoint, leftbtn, rightbtn;
+  if (selectedRow === 3 ){ midpoint = carousel1Midpoint; leftbtn = "left-1"; rightbtn = "right-1";}
+  if (selectedRow === 4 ){ midpoint = carousel2Midpoint; leftbtn = "left-2"; rightbtn = "right-2";}
+  if (selectedRow === 5 ){ midpoint = carousel3Midpoint; leftbtn = "left-3"; rightbtn = "right-3";}
+  if (selectedRow === 6 ){ midpoint = carousel4Midpoint; leftbtn = "left-4"; rightbtn = "right-4";}
+  if (selectedCol > midpoint+1){
+    simulateClick(rightbtn)
+    console.log("simulating right click")
+    if (selectedRow === 3){
+      carousel1Midpoint += 1
+    } else if (selectedRow === 4){
+      carousel2Midpoint += 1
+    } else if (selectedRow === 5){
+      carousel3Midpoint += 1
+    } else if(selectedRow === 6){
+      carousel4Midpoint += 1
+    }
+  } else if (selectedCol < midpoint-1){
+    simulateClick(leftbtn)
+    console.log("simulating left click")
+    if (selectedRow === 3){
+      carousel1Midpoint -= 1
+    } else if (selectedRow === 4){
+      carousel2Midpoint -= 1
+    } else if (selectedRow === 5){
+      carousel3Midpoint -= 1
+    } else if(selectedRow === 6){
+      carousel4Midpoint -= 1
+    }
   }
 
-  newSelectedDiv.scrollIntoView({
-    behavior: "smooth"
-  });
+  // Use requestAnimationFrame to scroll smoothly to the new selected div
+  smoothScrollToMiddle(newSelectedDiv)
+
   setTimeout(() => {
     // After a short delay, reset the border to its original size
     newSelectedDiv.style.border = originalBorderSize;

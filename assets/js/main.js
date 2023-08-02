@@ -14,14 +14,14 @@
 
     // show or hide the back-top-top button
     var backToTo = document.querySelector(".scroll-top");
-    if (
-      document.body.scrollTop > 50 ||
-      document.documentElement.scrollTop > 50
-    ) {
-      backToTo.style.display = "flex";
-    } else {
-      backToTo.style.display = "none";
-    }
+    // if (
+    //   document.body.scrollTop > 50 ||
+    //   document.documentElement.scrollTop > 50
+    // ) {
+    //   backToTo.style.display = "flex";
+    // } else {
+    //   backToTo.style.display = "none";
+    // }
   };
 
   // section menu active
@@ -74,7 +74,7 @@ const arrowBtns = document.querySelectorAll(".wrapper i");
 
 const carouselChildrens = [...carousel.children];
 let isDragging = false,
-  isAutoPlay = true,
+  isAutoPlay = false,
   startX,
   startScrollLeft,
   timeoutId;
@@ -87,10 +87,10 @@ carouselChildrens
   .forEach((card) => {
     carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
   });
-// Insert copies of the first few cards to end of carousel for infinite scrolling
-carouselChildrens.slice(0, cardPerView).forEach((card) => {
-  carousel.insertAdjacentHTML("beforeend", card.outerHTML);
-});
+// // Insert copies of the first few cards to end of carousel for infinite scrolling
+// carouselChildrens.slice(0, cardPerView).forEach((card) => {
+//   carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+// });
 // Scroll the carousel at appropriate postition to hide first few duplicate cards on Firefox
 carousel.classList.add("no-transition");
 carousel.scrollLeft = carousel.offsetWidth;
@@ -98,7 +98,7 @@ carousel.classList.remove("no-transition");
 // Add event listeners for the arrow buttons to scroll the carousel left and right
 arrowBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    carousel.scrollLeft += btn.id == "left" ? -firstCardWidth : firstCardWidth;
+    carousel.scrollLeft += btn.id == "left-1" ? -firstCardWidth : firstCardWidth;
   });
 });
 const dragStart = (e) => {
@@ -146,7 +146,7 @@ autoPlay();
 carousel.addEventListener("mousedown", dragStart);
 carousel.addEventListener("mousemove", dragging);
 document.addEventListener("mouseup", dragStop);
-carousel.addEventListener("scroll", infiniteScroll);
+// carousel.addEventListener("scroll", infiniteScroll);
 wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 wrapper.addEventListener("mouseleave", autoPlay);
 
@@ -157,7 +157,7 @@ const arrowBtns2 = document.querySelectorAll(".wrapper-2 i"); // Changed to "wra
 
 const carouselChildrens2 = [...carousel2.children]; // Changed to "carousel2"
 let isDragging2 = false,
-  isAutoPlay2 = true,
+  isAutoPlay2 = false,
   startX2,
   startScrollLeft2,
   timeoutId2;
@@ -170,9 +170,9 @@ carouselChildrens2
     carousel2.insertAdjacentHTML("afterbegin", card.outerHTML); // Changed to "carousel2"
   });
 
-carouselChildrens2.slice(0, cardPerView2).forEach((card) => {
-  carousel2.insertAdjacentHTML("beforeend", card.outerHTML); // Changed to "carousel2"
-});
+// carouselChildrens2.slice(0, cardPerView2).forEach((card) => {
+//   carousel2.insertAdjacentHTML("beforeend", card.outerHTML); // Changed to "carousel2"
+// });
 
 carousel2.classList.add("no-transition");
 carousel2.scrollLeft = carousel2.offsetWidth;
@@ -231,7 +231,7 @@ autoPlay2();
 carousel2.addEventListener("mousedown", dragStart2); // Changed to "carousel2"
 carousel2.addEventListener("mousemove", dragging2); // Changed to "carousel2"
 document.addEventListener("mouseup", dragStop2);
-carousel2.addEventListener("scroll", infiniteScroll2); // Changed to "carousel2"
+// carousel2.addEventListener("scroll", infiniteScroll2); // Changed to "carousel2"
 wrapper2.addEventListener("mouseenter", () => clearTimeout(timeoutId2));
 wrapper2.addEventListener("mouseleave", autoPlay2);
 
@@ -242,7 +242,7 @@ const arrowBtns3 = document.querySelectorAll(".wrapper-3 i"); // Changed to "wra
 
 const carouselChildrens3 = [...carousel3.children]; // Changed to "carousel3"
 let isDragging3 = false,
-  isAutoPlay3 = true,
+  isAutoPlay3 = false,
   startX3,
   startScrollLeft3,
   timeoutId3;
@@ -255,9 +255,9 @@ carouselChildrens3
     carousel3.insertAdjacentHTML("afterbegin", card.outerHTML); // Changed to "carousel3"
   });
 
-carouselChildrens3.slice(0, cardPerView3).forEach((card) => {
-  carousel3.insertAdjacentHTML("beforeend", card.outerHTML); // Changed to "carousel3"
-});
+// carouselChildrens3.slice(0, cardPerView3).forEach((card) => {
+//   carousel3.insertAdjacentHTML("beforeend", card.outerHTML); // Changed to "carousel3"
+// });
 
 carousel3.classList.add("no-transition");
 carousel3.scrollLeft = carousel3.offsetWidth;
@@ -316,7 +316,7 @@ autoPlay3();
 carousel3.addEventListener("mousedown", dragStart3); // Changed to "carousel3"
 carousel3.addEventListener("mousemove", dragging3); // Changed to "carousel3"
 document.addEventListener("mouseup", dragStop3);
-carousel3.addEventListener("scroll", infiniteScroll3); // Changed to "carousel3"
+// carousel3.addEventListener("scroll", infiniteScroll3); // Changed to "carousel3"
 wrapper3.addEventListener("mouseenter", () => clearTimeout(timeoutId3));
 wrapper3.addEventListener("mouseleave", autoPlay3);
 
@@ -327,7 +327,7 @@ const arrowBtns4 = document.querySelectorAll(".wrapper-4 i"); // Changed to "wra
 
 const carouselChildrens4 = [...carousel4.children]; // Changed to "carousel4"
 let isDragging4 = false,
-  isAutoPlay4 = true,
+  isAutoPlay4 = false,
   startX4,
   startScrollLeft4,
   timeoutId4;
@@ -340,9 +340,9 @@ carouselChildrens4
     carousel4.insertAdjacentHTML("afterbegin", card.outerHTML); // Changed to "carousel4"
   });
 
-carouselChildrens4.slice(0, cardPerView4).forEach((card) => {
-  carousel4.insertAdjacentHTML("beforeend", card.outerHTML); // Changed to "carousel4"
-});
+// carouselChildrens4.slice(0, cardPerView4).forEach((card) => {
+//   carousel4.insertAdjacentHTML("beforeend", card.outerHTML); // Changed to "carousel4"
+// });
 
 carousel4.classList.add("no-transition");
 carousel4.scrollLeft = carousel4.offsetWidth;
@@ -401,7 +401,7 @@ autoPlay4();
 carousel4.addEventListener("mousedown", dragStart4); // Changed to "carousel4"
 carousel4.addEventListener("mousemove", dragging4); // Changed to "carousel4"
 document.addEventListener("mouseup", dragStop4);
-carousel4.addEventListener("scroll", infiniteScroll4); // Changed to "carousel4"
+// carousel4.addEventListener("scroll", infiniteScroll4); // Changed to "carousel4"
 wrapper4.addEventListener("mouseenter", () => clearTimeout(timeoutId4));
 wrapper4.addEventListener("mouseleave", autoPlay4);
 
