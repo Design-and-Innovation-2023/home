@@ -4,6 +4,7 @@ const simplePeer = new smartcontroller.NesSmartController();
 const container = document.querySelector('.container');
 let inVideo = false;
 let previousSelectedDiv; // Variable to keep track of the selected div
+let newSelectedDiv;
 let newAHrefTag;
 let selectedCard = 1;
 let selectedRow = 1;
@@ -439,9 +440,15 @@ document.addEventListener("keydown", function (event) {
     }
   } else if (event.key === "Enter" && !newAHrefTag) {
     console.log("No ahref tag to enter")
+    console.log(newSelectedDiv)
+    console.log(newSelectedDiv.getAttribute('id'))
+    const temp = newSelectedDiv.getAttribute('id')
+    const tempDiv = document.getElementById(temp);
+    tempDiv.click();
+    console.log(tempDiv)
   }
   // Attempt to get the new selected div
-  let newSelectedDiv = divArray[selectedRow][selectedCol];
+  newSelectedDiv = divArray[selectedRow][selectedCol];
   if (
     !newSelectedDiv &&
     (event.key === "ArrowUp" || event.key === "ArrowDown")
