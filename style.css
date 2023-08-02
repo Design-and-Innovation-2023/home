@@ -347,7 +347,7 @@ p {
 .section-title-five h6 {
   font-weight: 600;
   display: inline-block;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   color: var(--primary);
   border: 2px solid var(--primary);
   border-radius: 30px;
@@ -1313,18 +1313,18 @@ p {
 
 /*===== portfolio THREE =====*/
 .portfolio-three {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   height: 100%;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .portfolio-three {
-    padding: 80px;
+    padding: 40px;
   }
 }
 @media (max-width: 767px) {
   .portfolio-three {
-    padding: 60px 0;
+    padding: 40px 0;
   }
 }
 .portfolio-three .portfolio-menu {
@@ -2921,11 +2921,11 @@ p {
   width: 100%;
   position: relative;
   margin-left: 3%;
-  margin-right: 10%;
-  margin-top: 2%;
+  margin-right: 2%;
+
 }
 .wrapper-5 i {
-  top: 60%;
+  top: 80%;
   height: 50px;
   width: 50px;
   cursor: pointer;
@@ -2934,6 +2934,7 @@ p {
   text-align: center;
   line-height: 50px;
   border-radius: 50%;
+  margin-top: 5%;
   transition: transform 0.1s linear;
 }
 .wrapper-5 i:active{
@@ -2949,7 +2950,7 @@ p {
 .wrapper-5 .carousel-5{
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 3) - 12px);
+  grid-auto-columns: calc((100% / 1) - 12px);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 16px;

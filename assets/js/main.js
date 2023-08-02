@@ -98,7 +98,8 @@ carousel.classList.remove("no-transition");
 // Add event listeners for the arrow buttons to scroll the carousel left and right
 arrowBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    carousel.scrollLeft += btn.id == "left-1" ? -firstCardWidth : firstCardWidth;
+    carousel.scrollLeft +=
+      btn.id == "left-1" ? -firstCardWidth : firstCardWidth;
   });
 });
 const dragStart = (e) => {
@@ -412,7 +413,7 @@ const arrowBtns5 = document.querySelectorAll(".wrapper-5 i");
 
 const carouselChildrens5 = [...carousel5.children];
 let isDragging5 = false,
-  isAutoPlay5 = true,
+  isAutoPlay5 = false,
   startX5,
   startScrollLeft5,
   timeoutId5;
