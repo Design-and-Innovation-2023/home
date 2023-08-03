@@ -233,6 +233,14 @@ function processData() {
             inVideo = true;
             linkObject.click();
           }
+        } else if (id === "a" && !newAHrefTag) {
+          console.log("No ahref tag to enter")
+          console.log(newSelectedDiv)
+          console.log(newSelectedDiv.getAttribute('id'))
+          const temp = newSelectedDiv.getAttribute('id')
+          const tempDiv = document.getElementById(temp);
+          tempDiv.click();
+          console.log(tempDiv)
         } else if (id === "b" && newAHrefTag && inVideo) {
           simulateButtonClick("Close (Esc)");
           inVideo = false;
@@ -241,7 +249,7 @@ function processData() {
           history.back();
         }
         // Attempt to get the new selected div
-        let newSelectedDiv = divArray[selectedRow][selectedCol];
+        newSelectedDiv = divArray[selectedRow][selectedCol];
         if (!newSelectedDiv) {
           if (id === "up") {
             newSelectedDiv = findFirstItemInRow(selectedRow, divArray, "up");
