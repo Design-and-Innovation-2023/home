@@ -145,11 +145,16 @@ function simulateButtonClick(buttonTitleToClick) {
 function recalculateSelection(scrollLink) {
   if (scrollLink === "#team") {
     selectedRow = 9
-    selectedCol = 1
   } else if (scrollLink === "#call-action") {
     selectedRow = 19
-    selectedCol = 1
+  } else if (scrollLink === "#pricing"){
+    selectedRow = 8
+  } else if (scrollLink === "#services"){
+    selectedRow = 3
+  } else if (scrollLink === "#portfolio"){
+    selectedRow = 7
   }
+  selectedCol = 1
 }
 
 function smoothScrollToMiddle(element) {
