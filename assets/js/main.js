@@ -490,3 +490,13 @@ document.addEventListener("mouseup", dragStop5);
 carousel5.addEventListener("scroll", infiniteScroll5);
 wrapper5.addEventListener("mouseenter", () => clearTimeout(timeoutId5));
 wrapper5.addEventListener("mouseleave", autoPlay5);
+
+const $icon = document.querySelector(".icon");
+const $arrow = document.querySelector(".arrow");
+
+$icon.onclick = () => {
+  $arrow.animate([{ left: "0" }, { left: "10px" }, { left: "0" }], {
+    duration: 700,
+    iterations: Infinity,
+  });
+};
