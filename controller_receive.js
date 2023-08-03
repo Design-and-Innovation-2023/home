@@ -307,22 +307,35 @@ function processData() {
           leftbtn = "left-1";
           rightbtn = "right-1";
         }
-        if (selectedRow === 4) {
+        else if (selectedRow === 4) {
           midpoint = carousel2Midpoint;
           leftbtn = "left-2";
           rightbtn = "right-2";
         }
-        if (selectedRow === 5) {
+        else if (selectedRow === 5) {
           midpoint = carousel3Midpoint;
           leftbtn = "left-3";
           rightbtn = "right-3";
         }
-        if (selectedRow === 6) {
+        else if (selectedRow === 6) {
           midpoint = carousel4Midpoint;
           leftbtn = "left-4";
           rightbtn = "right-4";
         }
-        if (selectedCol > midpoint + 1) {
+        else if (selectedRow === 7) {
+          leftbtn = "left-5";
+          rightbtn = "right-5";
+        }
+
+        if (selectedRow === 7 && id === "left"){ 
+          console.log("going left for 7")
+          simulateClick(leftbtn); 
+        }
+        else if (selectedRow === 7 && id === "right"){ 
+          console.log("going right for 7")
+          simulateClick(rightbtn); 
+        }
+        else if (selectedCol > midpoint + 1) {
           simulateClick(rightbtn)
           console.log("simulating right click")
           if (selectedRow === 3) {
@@ -521,22 +534,35 @@ document.addEventListener("keydown", function (event) {
     leftbtn = "left-1";
     rightbtn = "right-1";
   }
-  if (selectedRow === 4) {
+  else if (selectedRow === 4) {
     midpoint = carousel2Midpoint;
     leftbtn = "left-2";
     rightbtn = "right-2";
   }
-  if (selectedRow === 5) {
+  else if (selectedRow === 5) {
     midpoint = carousel3Midpoint;
     leftbtn = "left-3";
     rightbtn = "right-3";
   }
-  if (selectedRow === 6) {
+  else if (selectedRow === 6) {
     midpoint = carousel4Midpoint;
     leftbtn = "left-4";
     rightbtn = "right-4";
   }
-  if (selectedCol > midpoint + 1) {
+  else if (selectedRow === 7) {
+    leftbtn = "left-5";
+    rightbtn = "right-5";
+  }
+
+  if (selectedRow === 7 && event.key === "ArrowLeft"){ 
+    console.log("going left for 7")
+    simulateClick(leftbtn); 
+  }
+  else if (selectedRow === 7 && event.key === "ArrowRight"){ 
+    console.log("going right for 7")
+    simulateClick(rightbtn); 
+  }
+  else if (selectedRow !== 7 && selectedCol > midpoint + 1) {
     simulateClick(rightbtn)
     console.log("simulating right click")
     if (selectedRow === 3) {
@@ -548,7 +574,7 @@ document.addEventListener("keydown", function (event) {
     } else if (selectedRow === 6) {
       carousel4Midpoint += 1
     }
-  } else if (selectedCol < midpoint - 1) {
+  } else if (selectedRow !== 7 && selectedCol < midpoint - 1) {
     simulateClick(leftbtn)
     console.log("simulating left click")
     if (selectedRow === 3) {
