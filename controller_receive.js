@@ -157,6 +157,53 @@ function recalculateSelection(scrollLink) {
   selectedCol = 1
 }
 
+function forceScroll(id){
+  selectedRow = 7
+  if (id === "card1A"){
+    selectedCol = 1
+  } else if (id === "card1B"){
+    selectedCol = 2
+  } else if (id === "card2A"){
+    selectedCol = 3
+  } else if (id === "card2B"){
+    selectedCol = 4
+  } else if (id === "card3A"){
+    selectedCol = 5
+  } else if (id === "card3B"){
+    selectedCol = 6
+  } else if (id === "card4A"){
+    selectedCol = 7
+  } else if (id === "card4B"){
+    selectedCol = 8
+  } else if (id === "card5A"){
+    selectedCol = 9
+  } else if (id === "card5B"){
+    selectedCol = 10
+  } else if (id === "card5C"){
+    selectedCol = 11
+  } else if (id === "card6A"){
+    selectedCol = 12
+  } else if (id === "card6B"){
+    selectedCol = 13
+  } else if (id === "card7A"){
+    selectedCol = 14
+  } else if (id === "card7B"){
+    selectedCol = 15
+  } else if (id === "card8A"){
+    selectedCol = 16
+  } else if (id === "card8B"){
+    selectedCol = 17
+  } else if (id === "card9A"){
+    selectedCol = 18
+  } else if (id === "card9B"){
+    selectedCol = 19
+  } else if (id === "card10B"){
+    selectedCol = 20
+  } else if (id === "card10A"){
+    selectedCol = 21
+  }
+}
+
 function smoothScrollToMiddle(element) {
   console.log('smooth scrolling')
   const elementRect = element.getBoundingClientRect();
@@ -238,9 +285,15 @@ function processData() {
           console.log(newSelectedDiv)
           console.log(newSelectedDiv.getAttribute('id'))
           const temp = newSelectedDiv.getAttribute('id')
-          const tempDiv = document.getElementById(temp);
-          tempDiv.click();
-          console.log(tempDiv)
+          if (temp.startsWith("card") && (selectedRow === 3 || selectedRow === 4 || selectedRow === 5 || selectedRow === 6)){
+            console.log("forcing card scroll")
+            forceScroll(temp)
+          }
+          else{
+            const tempDiv = document.getElementById(temp);
+            tempDiv.click();
+            console.log(tempDiv)
+          }
         } else if (id === "b" && newAHrefTag && inVideo) {
           simulateButtonClick("Close (Esc)");
           inVideo = false;
@@ -410,7 +463,6 @@ function processData() {
 
 
 
-
 document.addEventListener("keydown", function (event) {
   const divArray = mapClickableDivs();
   console.log(divArray);
@@ -469,9 +521,15 @@ document.addEventListener("keydown", function (event) {
     console.log(newSelectedDiv)
     console.log(newSelectedDiv.getAttribute('id'))
     const temp = newSelectedDiv.getAttribute('id')
-    const tempDiv = document.getElementById(temp);
-    tempDiv.click();
-    console.log(tempDiv)
+    if (temp.startsWith("card") && (selectedRow === 3 || selectedRow === 4 || selectedRow === 5 || selectedRow === 6)){
+      console.log("forcing card scroll")
+      forceScroll(temp)
+    }
+    else{
+      const tempDiv = document.getElementById(temp);
+      tempDiv.click();
+      console.log(tempDiv)
+    }
   }
   // Attempt to get the new selected div
   newSelectedDiv = divArray[selectedRow][selectedCol];
