@@ -1,7 +1,7 @@
 //create an instance of NesSmartController, optionally specify a peer ID for the PC browser peer
 //firstconnected is true by default, only the first player to connect to a specific player ID will be allowed to keep it, the rest of the connections to the same ID won't be allowed
 const simplePeer = new smartcontroller.NesSmartController();
-const container = document.querySelector('.container');
+const container = document.querySelector(".container");
 let inVideo = false;
 let previousSelectedDiv; // Variable to keep track of the selected div
 let newSelectedDiv;
@@ -14,7 +14,6 @@ let carousel2Midpoint = 2;
 let carousel3Midpoint = 2;
 let carousel4Midpoint = 2;
 const temp = window.location.pathname;
-
 
 //create and display a QR code for the smartphones, specify url for the controller, div element for the code to be displayed,
 //optionally size and a player ID, in this case the player ID is set to 1
@@ -33,8 +32,6 @@ simplePeer.on("connection", function (data) {
 });
 
 processData();
-
-
 
 function findFirstItemInRow(selectedRow, divArray, direction) {
   let rowStep = 1; // Default to moving downward
@@ -63,8 +60,6 @@ function findFirstItemInRow(selectedRow, divArray, direction) {
   return null; // Return null if no item with a value is found in the rows in the specified direction
 }
 
-
-
 function findClassNameOfDivElement(divElement) {
   if (divElement instanceof HTMLDivElement) {
     return divElement.className;
@@ -78,14 +73,14 @@ function findAHrefTag(divElement) {
   const myLink = divElement.querySelector("a");
 
   if (myLink) {
-    console.log(myLink)
+    console.log(myLink);
     // If 'myLink' is found, get its 'id' attribute
     const linkId = myLink.id;
     if (linkId) {
       return linkId;
     } else {
       // If 'id' attribute is not found, get the 'href' attribute
-      const href = myLink.getAttribute('href');
+      const href = myLink.getAttribute("href");
       return href;
     }
   } else {
@@ -116,9 +111,6 @@ function mapClickableDivs() {
   return divArray;
 }
 
-
-
-
 function simulateClick(elementId) {
   // Simulate click on the element with ID 'myButton'
   const elementToClick = document.getElementById(elementId);
@@ -127,10 +119,10 @@ function simulateClick(elementId) {
 
 function simulateButtonClick(buttonTitleToClick) {
   // Find the button element based on its title
-  const buttons = document.querySelectorAll('button'); // Or use any other attribute to select the button
+  const buttons = document.querySelectorAll("button"); // Or use any other attribute to select the button
   let buttonToClick;
 
-  buttons.forEach(button => {
+  buttons.forEach((button) => {
     if (button.title === buttonTitleToClick) {
       buttonToClick = button;
     }
@@ -144,68 +136,68 @@ function simulateButtonClick(buttonTitleToClick) {
 
 function recalculateSelection(scrollLink) {
   if (scrollLink === "#team") {
-    selectedRow = 9
+    selectedRow = 9;
   } else if (scrollLink === "#call-action") {
-    selectedRow = 19
-  } else if (scrollLink === "#pricing"){
-    selectedRow = 8
-  } else if (scrollLink === "#services"){
-    selectedRow = 3
-  } else if (scrollLink === "#portfolio"){
-    selectedRow = 7
+    selectedRow = 19;
+  } else if (scrollLink === "#pricing") {
+    selectedRow = 8;
+  } else if (scrollLink === "#services") {
+    selectedRow = 3;
+  } else if (scrollLink === "#portfolio") {
+    selectedRow = 7;
   }
-  selectedCol = 1
+  selectedCol = 1;
 }
 
-function forceScroll(id){
-  selectedRow = 7
-  if (id === "card1A"){
-    selectedCol = 1
-  } else if (id === "card1B"){
-    selectedCol = 2
-  } else if (id === "card2A"){
-    selectedCol = 3
-  } else if (id === "card2B"){
-    selectedCol = 4
-  } else if (id === "card3A"){
-    selectedCol = 5
-  } else if (id === "card3B"){
-    selectedCol = 6
-  } else if (id === "card4A"){
-    selectedCol = 7
-  } else if (id === "card4B"){
-    selectedCol = 8
-  } else if (id === "card5A"){
-    selectedCol = 9
-  } else if (id === "card5B"){
-    selectedCol = 10
-  } else if (id === "card5C"){
-    selectedCol = 11
-  } else if (id === "card6A"){
-    selectedCol = 12
-  } else if (id === "card6B"){
-    selectedCol = 13
-  } else if (id === "card7A"){
-    selectedCol = 14
-  } else if (id === "card7B"){
-    selectedCol = 15
-  } else if (id === "card8A"){
-    selectedCol = 16
-  } else if (id === "card8B"){
-    selectedCol = 17
-  } else if (id === "card9A"){
-    selectedCol = 18
-  } else if (id === "card9B"){
-    selectedCol = 19
-  } else if (id === "card10B"){
-    selectedCol = 20
-  } else if (id === "card10A"){
-    selectedCol = 21
+function forceScroll(id) {
+  selectedRow = 7;
+  if (id === "card1A") {
+    selectedCol = 1;
+  } else if (id === "card1B") {
+    selectedCol = 2;
+  } else if (id === "card2A") {
+    selectedCol = 3;
+  } else if (id === "card2B") {
+    selectedCol = 4;
+  } else if (id === "card3A") {
+    selectedCol = 5;
+  } else if (id === "card3B") {
+    selectedCol = 6;
+  } else if (id === "card4A") {
+    selectedCol = 7;
+  } else if (id === "card4B") {
+    selectedCol = 8;
+  } else if (id === "card5A") {
+    selectedCol = 9;
+  } else if (id === "card5B") {
+    selectedCol = 10;
+  } else if (id === "card5C") {
+    selectedCol = 11;
+  } else if (id === "card6A") {
+    selectedCol = 12;
+  } else if (id === "card6B") {
+    selectedCol = 13;
+  } else if (id === "card7A") {
+    selectedCol = 14;
+  } else if (id === "card7B") {
+    selectedCol = 15;
+  } else if (id === "card8A") {
+    selectedCol = 16;
+  } else if (id === "card8B") {
+    selectedCol = 17;
+  } else if (id === "card9A") {
+    selectedCol = 18;
+  } else if (id === "card9B") {
+    selectedCol = 19;
+  } else if (id === "card10B") {
+    selectedCol = 20;
+  } else if (id === "card10A") {
+    selectedCol = 21;
   }
 }
 
 function smoothScrollToMiddle(element) {
-  console.log('smooth scrolling')
+  console.log("smooth scrolling");
   const elementRect = element.getBoundingClientRect();
   const viewportHeight = window.innerHeight;
   const additionalScroll = (viewportHeight - elementRect.height) / 2;
@@ -214,7 +206,7 @@ function smoothScrollToMiddle(element) {
   requestAnimationFrame(() => {
     element.scrollIntoView({
       behavior: "smooth",
-      block: "center"
+      block: "center",
     });
   });
 }
@@ -230,8 +222,8 @@ function processData() {
 
   if (!previousSelectedDiv) {
     previousSelectedDiv = divArray[1][1];
-    setTimeout(processData, 300)
-    return
+    setTimeout(processData, 300);
+    return;
   }
 
   if (simplePeer.controllerList[1]) {
@@ -265,40 +257,57 @@ function processData() {
           console.log("Entering..." + newAHrefTag);
           // Trigger a click event on the targeted a element
           // Check if href starts with './'
-          if (newAHrefTag.startsWith('./')) {
-            inVideo = false
+          if (newAHrefTag.startsWith("./")) {
+            inVideo = false;
             window.location.assign(newAHrefTag);
-          } else if (newAHrefTag.startsWith('#')) {
-            const scrollLink = document.querySelector(`a.page-scroll[href="${newAHrefTag}"]`);
+          } else if (newAHrefTag.startsWith("#")) {
+            const scrollLink = document.querySelector(
+              `a.page-scroll[href="${newAHrefTag}"]`
+            );
             if (scrollLink) {
               recalculateSelection(newAHrefTag);
-              console.log("new row: " + selectedRow + " selectedCol: " + selectedCol)
+              console.log(
+                "new row: " + selectedRow + " selectedCol: " + selectedCol
+              );
               scrollLink.click();
             }
           } else {
             const linkObject = document.getElementById(newAHrefTag);
             inVideo = true;
-            linkObject.click();
+            try {
+              linkObject.click();
+            } catch (err) {
+              console.log(err);
+            }
           }
         } else if (id === "a" && !newAHrefTag) {
-          console.log("No ahref tag to enter")
-          console.log(newSelectedDiv)
-          console.log(newSelectedDiv.getAttribute('id'))
-          const temp = newSelectedDiv.getAttribute('id')
-          if (temp.startsWith("card") && (selectedRow === 3 || selectedRow === 4 || selectedRow === 5 || selectedRow === 6)){
-            console.log("forcing card scroll")
-            forceScroll(temp)
-          }
-          else{
-            const tempDiv = document.getElementById(temp);
-            tempDiv.click();
-            console.log(tempDiv)
+          console.log("No ahref tag to enter");
+          console.log(newSelectedDiv);
+          console.log(newSelectedDiv.getAttribute("id"));
+          const temp = newSelectedDiv.getAttribute("id");
+          if (
+            temp.startsWith("card") &&
+            (selectedRow === 3 ||
+              selectedRow === 4 ||
+              selectedRow === 5 ||
+              selectedRow === 6)
+          ) {
+            console.log("forcing card scroll");
+            forceScroll(temp);
+          } else {
+            try {
+              const tempDiv = document.getElementById(temp);
+              tempDiv.click();
+              console.log(tempDiv);
+            } catch (err) {
+              console.log(err);
+            }
           }
         } else if (id === "b" && newAHrefTag && inVideo) {
           simulateButtonClick("Close (Esc)");
           inVideo = false;
         } else if (id === "b" && !inVideo) {
-          console.log("backing")
+          console.log("backing");
           history.back();
         }
         // Attempt to get the new selected div
@@ -340,18 +349,18 @@ function processData() {
             selectedCol -= 1;
           }
           console.log("doing nothing");
-          setTimeout(processData, 300)
-          return
+          setTimeout(processData, 300);
+          return;
         }
 
         if (selectedCard === 1 && (id === "up" || id === "down")) {
           carousel1Midpoint,
-          carousel2Midpoint,
-          carousel3Midpoint,
-          carousel4Midpoint = 2,
-          2,
-          2,
-          2;
+            carousel2Midpoint,
+            carousel3Midpoint,
+            (carousel4Midpoint = 2),
+            2,
+            2,
+            2;
         }
         previousSelectedDiv.classList.remove("selected");
         previousSelectedDiv.style.border = emptyBorder;
@@ -362,7 +371,7 @@ function processData() {
         previousSelectedDiv.classList.remove("selected");
         // Store the current selected div as the previously selected div
         previousSelectedDiv = newSelectedDiv;
-        newAHrefTag = findAHrefTag(newSelectedDiv)
+        newAHrefTag = findAHrefTag(newSelectedDiv);
 
         // check what is the current midpoint
         // check what is the new selected div
@@ -372,63 +381,57 @@ function processData() {
           midpoint = carousel1Midpoint;
           leftbtn = "left-1";
           rightbtn = "right-1";
-        }
-        else if (selectedRow === 4) {
+        } else if (selectedRow === 4) {
           midpoint = carousel2Midpoint;
           leftbtn = "left-2";
           rightbtn = "right-2";
-        }
-        else if (selectedRow === 5) {
+        } else if (selectedRow === 5) {
           midpoint = carousel3Midpoint;
           leftbtn = "left-3";
           rightbtn = "right-3";
-        }
-        else if (selectedRow === 6) {
+        } else if (selectedRow === 6) {
           midpoint = carousel4Midpoint;
           leftbtn = "left-4";
           rightbtn = "right-4";
-        }
-        else if (selectedRow === 7) {
+        } else if (selectedRow === 7) {
           leftbtn = "left-5";
           rightbtn = "right-5";
         }
 
-        if (selectedRow === 7 && id === "left"){ 
-          console.log("going left for 7")
-          simulateClick(leftbtn); 
-        }
-        else if (selectedRow === 7 && id === "right"){ 
-          console.log("going right for 7")
-          simulateClick(rightbtn); 
-        }
-        else if (selectedCol > midpoint + 1) {
-          simulateClick(rightbtn)
-          console.log("simulating right click")
+        if (selectedRow === 7 && id === "left") {
+          console.log("going left for 7");
+          simulateClick(leftbtn);
+        } else if (selectedRow === 7 && id === "right") {
+          console.log("going right for 7");
+          simulateClick(rightbtn);
+        } else if (selectedCol > midpoint + 1) {
+          simulateClick(rightbtn);
+          console.log("simulating right click");
           if (selectedRow === 3) {
-            carousel1Midpoint += 1
+            carousel1Midpoint += 1;
           } else if (selectedRow === 4) {
-            carousel2Midpoint += 1
+            carousel2Midpoint += 1;
           } else if (selectedRow === 5) {
-            carousel3Midpoint += 1
+            carousel3Midpoint += 1;
           } else if (selectedRow === 6) {
-            carousel4Midpoint += 1
+            carousel4Midpoint += 1;
           }
         } else if (selectedCol < midpoint - 1) {
-          simulateClick(leftbtn)
-          console.log("simulating left click")
+          simulateClick(leftbtn);
+          console.log("simulating left click");
           if (selectedRow === 3) {
-            carousel1Midpoint -= 1
+            carousel1Midpoint -= 1;
           } else if (selectedRow === 4) {
-            carousel2Midpoint -= 1
+            carousel2Midpoint -= 1;
           } else if (selectedRow === 5) {
-            carousel3Midpoint -= 1
+            carousel3Midpoint -= 1;
           } else if (selectedRow === 6) {
-            carousel4Midpoint -= 1
+            carousel4Midpoint -= 1;
           }
         }
 
         // Use requestAnimationFrame to scroll smoothly to the new selected div
-        smoothScrollToMiddle(newSelectedDiv)
+        smoothScrollToMiddle(newSelectedDiv);
 
         setTimeout(() => {
           // After a short delay, reset the border to its original size
@@ -439,29 +442,6 @@ function processData() {
   }
   setTimeout(processData, 300); // 1000 milliseconds = 1 second
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 document.addEventListener("keydown", function (event) {
   const divArray = mapClickableDivs();
@@ -501,14 +481,16 @@ document.addEventListener("keydown", function (event) {
     event.preventDefault(); // Prevent default Enter behavior (e.g., form submission)
     // Trigger a click event on the targeted a element
     // Check if href starts with './'
-    if (newAHrefTag.startsWith('./')) {
-      inVideo = false
+    if (newAHrefTag.startsWith("./")) {
+      inVideo = false;
       window.location.assign(newAHrefTag);
-    } else if (newAHrefTag.startsWith('#')) {
-      const scrollLink = document.querySelector(`a.page-scroll[href="${newAHrefTag}"]`);
+    } else if (newAHrefTag.startsWith("#")) {
+      const scrollLink = document.querySelector(
+        `a.page-scroll[href="${newAHrefTag}"]`
+      );
       if (scrollLink) {
         recalculateSelection(newAHrefTag);
-        console.log("new row: " + selectedRow + " selectedCol: " + selectedCol)
+        console.log("new row: " + selectedRow + " selectedCol: " + selectedCol);
         scrollLink.click();
       }
     } else {
@@ -517,18 +499,23 @@ document.addEventListener("keydown", function (event) {
       linkObject.click();
     }
   } else if (event.key === "Enter" && !newAHrefTag) {
-    console.log("No ahref tag to enter")
-    console.log(newSelectedDiv)
-    console.log(newSelectedDiv.getAttribute('id'))
-    const temp = newSelectedDiv.getAttribute('id')
-    if (temp.startsWith("card") && (selectedRow === 3 || selectedRow === 4 || selectedRow === 5 || selectedRow === 6)){
-      console.log("forcing card scroll")
-      forceScroll(temp)
-    }
-    else{
+    console.log("No ahref tag to enter");
+    console.log(newSelectedDiv);
+    console.log(newSelectedDiv.getAttribute("id"));
+    const temp = newSelectedDiv.getAttribute("id");
+    if (
+      temp.startsWith("card") &&
+      (selectedRow === 3 ||
+        selectedRow === 4 ||
+        selectedRow === 5 ||
+        selectedRow === 6)
+    ) {
+      console.log("forcing card scroll");
+      forceScroll(temp);
+    } else {
       const tempDiv = document.getElementById(temp);
       tempDiv.click();
-      console.log(tempDiv)
+      console.log(tempDiv);
     }
   }
   // Attempt to get the new selected div
@@ -575,14 +562,17 @@ document.addEventListener("keydown", function (event) {
     return; // Do nothing if the selectedDiv is undefined (out of bounds)
   }
 
-  if (selectedCard === 1 && (event.key === "ArrowUp" || event.key === "ArrowDown")) {
+  if (
+    selectedCard === 1 &&
+    (event.key === "ArrowUp" || event.key === "ArrowDown")
+  ) {
     carousel1Midpoint,
-    carousel2Midpoint,
-    carousel3Midpoint,
-    carousel4Midpoint = 2,
-    2,
-    2,
-    2;
+      carousel2Midpoint,
+      carousel3Midpoint,
+      (carousel4Midpoint = 2),
+      2,
+      2,
+      2;
   }
   previousSelectedDiv.classList.remove("selected");
   previousSelectedDiv.style.border = emptyBorder;
@@ -593,8 +583,8 @@ document.addEventListener("keydown", function (event) {
   previousSelectedDiv.classList.remove("selected");
   // Store the current selected div as the previously selected div
   previousSelectedDiv = newSelectedDiv;
-  newAHrefTag = findAHrefTag(newSelectedDiv)
-  console.log(selectedRow + " " + selectedCol + " " + newAHrefTag)
+  newAHrefTag = findAHrefTag(newSelectedDiv);
+  console.log(selectedRow + " " + selectedCol + " " + newAHrefTag);
 
   // check what is the current midpoint
   // check what is the new selected div
@@ -604,63 +594,57 @@ document.addEventListener("keydown", function (event) {
     midpoint = carousel1Midpoint;
     leftbtn = "left-1";
     rightbtn = "right-1";
-  }
-  else if (selectedRow === 4) {
+  } else if (selectedRow === 4) {
     midpoint = carousel2Midpoint;
     leftbtn = "left-2";
     rightbtn = "right-2";
-  }
-  else if (selectedRow === 5) {
+  } else if (selectedRow === 5) {
     midpoint = carousel3Midpoint;
     leftbtn = "left-3";
     rightbtn = "right-3";
-  }
-  else if (selectedRow === 6) {
+  } else if (selectedRow === 6) {
     midpoint = carousel4Midpoint;
     leftbtn = "left-4";
     rightbtn = "right-4";
-  }
-  else if (selectedRow === 7) {
+  } else if (selectedRow === 7) {
     leftbtn = "left-5";
     rightbtn = "right-5";
   }
 
-  if (selectedRow === 7 && event.key === "ArrowLeft"){ 
-    console.log("going left for 7")
-    simulateClick(leftbtn); 
-  }
-  else if (selectedRow === 7 && event.key === "ArrowRight"){ 
-    console.log("going right for 7")
-    simulateClick(rightbtn); 
-  }
-  else if (selectedRow !== 7 && selectedCol > midpoint + 1) {
-    simulateClick(rightbtn)
-    console.log("simulating right click")
+  if (selectedRow === 7 && event.key === "ArrowLeft") {
+    console.log("going left for 7");
+    simulateClick(leftbtn);
+  } else if (selectedRow === 7 && event.key === "ArrowRight") {
+    console.log("going right for 7");
+    simulateClick(rightbtn);
+  } else if (selectedRow !== 7 && selectedCol > midpoint + 1) {
+    simulateClick(rightbtn);
+    console.log("simulating right click");
     if (selectedRow === 3) {
-      carousel1Midpoint += 1
+      carousel1Midpoint += 1;
     } else if (selectedRow === 4) {
-      carousel2Midpoint += 1
+      carousel2Midpoint += 1;
     } else if (selectedRow === 5) {
-      carousel3Midpoint += 1
+      carousel3Midpoint += 1;
     } else if (selectedRow === 6) {
-      carousel4Midpoint += 1
+      carousel4Midpoint += 1;
     }
   } else if (selectedRow !== 7 && selectedCol < midpoint - 1) {
-    simulateClick(leftbtn)
-    console.log("simulating left click")
+    simulateClick(leftbtn);
+    console.log("simulating left click");
     if (selectedRow === 3) {
-      carousel1Midpoint -= 1
+      carousel1Midpoint -= 1;
     } else if (selectedRow === 4) {
-      carousel2Midpoint -= 1
+      carousel2Midpoint -= 1;
     } else if (selectedRow === 5) {
-      carousel3Midpoint -= 1
+      carousel3Midpoint -= 1;
     } else if (selectedRow === 6) {
-      carousel4Midpoint -= 1
+      carousel4Midpoint -= 1;
     }
   }
 
   // Use requestAnimationFrame to scroll smoothly to the new selected div
-  smoothScrollToMiddle(newSelectedDiv)
+  smoothScrollToMiddle(newSelectedDiv);
 
   setTimeout(() => {
     // After a short delay, reset the border to its original size
