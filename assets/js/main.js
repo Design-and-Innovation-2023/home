@@ -429,9 +429,9 @@ carouselChildrens5
     carousel5.insertAdjacentHTML("afterbegin", card.outerHTML);
   });
 
-carouselChildrens5.slice(0, cardPerView5).forEach((card) => {
-  carousel5.insertAdjacentHTML("beforeend", card.outerHTML);
-});
+// carouselChildrens5.slice(0, cardPerView5).forEach((card) => {
+//   carousel5.insertAdjacentHTML("beforeend", card.outerHTML);
+// });
 
 carousel5.classList.add("no-transition");
 carousel5.scrollLeft = carouselWidth5; // Set the initial scroll to show the first card
