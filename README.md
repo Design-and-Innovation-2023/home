@@ -1,10 +1,10 @@
 # Project Title
 
-Remarkable Tales: Empowering 127 Computing Science Students to share their Overseas Immersion Program Journey.
+Project Nexus: Empowering 127 Computing Science Students to share their Overseas Immersion Program Journey.
 
 ## Description
 
-The "Remarkable Tales" project aims to enable the 127 amazing computing science students who participated in the Overseas Immersion Program (OIP) at the University of Glasgow to share their collective journey, experiences, and innovative solutions with the world in a unique and remarkable way. The project recognizes that the students' work during the OIP holds great value for future opportunities, but its impact will be maximized only when shared coherently and attractively.
+The "Project Nexus" project aims to enable the 127 amazing computing science students who participated in the Overseas Immersion Program (OIP) at the University of Glasgow to share their collective journey, experiences, and innovative solutions with the world in a unique and remarkable way. The project recognizes that the students' work during the OIP holds great value for future opportunities, but its impact will be maximized only when shared coherently and attractively.
 
 ## Members of Team 11
 
